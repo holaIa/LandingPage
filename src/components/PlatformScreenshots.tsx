@@ -23,8 +23,17 @@ import {
   FileText,
 } from "lucide-react";
 
+interface Screenshot {
+  title: string;
+  subtitle: string;
+  description: string;
+  type: "patients" | "appointments" | "chat";
+  activeTab: string;
+  stats?: string;
+}
+
 const PlatformScreenshots = () => {
-  const screenshots = [
+  const screenshots: Screenshot[] = [
     {
       title: "Dashboard de Pacientes",
       subtitle: "Historial Clínico de Pacientes",
@@ -453,7 +462,7 @@ const PlatformScreenshots = () => {
     </div>
   );
 
-  const renderScreenshot = (screenshot: any) => {
+  const renderScreenshot = (screenshot: Screenshot) => {
     const renderContent = () => {
       switch (screenshot.type) {
         case "patients":
