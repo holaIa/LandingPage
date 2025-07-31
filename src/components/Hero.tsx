@@ -9,12 +9,69 @@ import {
   ArrowRight,
   Play,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Configuración de animaciones optimizada para móvil
+  const animationConfig = {
+    initial: isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: isMobile ? 0 : 0.6 },
+  };
+
+  const titleAnimation = {
+    initial: isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: isMobile ? 0 : 0.8, delay: isMobile ? 0 : 0.2 },
+  };
+
+  const subtitleAnimation = {
+    initial: isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: isMobile ? 0 : 0.8, delay: isMobile ? 0 : 0.4 },
+  };
+
+  const buttonsAnimation = {
+    initial: isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: isMobile ? 0 : 0.8, delay: isMobile ? 0 : 0.6 },
+  };
+
+  const statsAnimation = {
+    initial: isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: isMobile ? 0 : 0.8, delay: isMobile ? 0 : 0.8 },
+  };
+
+  const imageAnimation = {
+    initial: isMobile ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: isMobile ? 0 : 0.8, delay: isMobile ? 0 : 0.4 },
+  };
+
+  const scrollAnimation = {
+    initial: isMobile ? { opacity: 1 } : { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: isMobile ? 0 : 1, delay: isMobile ? 0 : 1.2 },
+  };
+
   return (
     <section
       id="home"
-      className="hero-section bg-gradient-to-br from-blue-50 via-white to-purple-50"
+      className="hero-section bg-gradient-to-br from-blue-50 via-white to-purple-50 mobile-optimized"
     >
       {/* Background Elements */}
       <div className="background-blob"></div>
@@ -26,9 +83,7 @@ const Hero = () => {
           <div className="text-left">
             {/* Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              {...animationConfig}
               className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-blue-100 text-blue-800 text-sm sm:text-base font-semibold mb-6 sm:mb-8 shadow-sm"
             >
               <Zap className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
@@ -37,9 +92,7 @@ const Hero = () => {
 
             {/* Main Heading */}
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              {...titleAnimation}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight"
             >
               CRM Médico Inteligente con
@@ -50,9 +103,7 @@ const Hero = () => {
 
             {/* Subtitle */}
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              {...subtitleAnimation}
               className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-8 sm:mb-12 max-w-2xl leading-relaxed"
             >
               Automatiza la gestión de citas por WhatsApp, optimiza la atención
@@ -62,9 +113,7 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              {...buttonsAnimation}
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-start items-center mb-12 sm:mb-16"
             >
               <a
@@ -81,12 +130,7 @@ const Hero = () => {
             </motion.div>
 
             {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="stats-grid"
-            >
+            <motion.div {...statsAnimation} className="stats-grid">
               <div className="text-center">
                 <div className="icon-container bg-blue-100 mx-auto">
                   <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
@@ -124,19 +168,15 @@ const Hero = () => {
           </div>
 
           {/* Hero Image and Chat Preview */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative mt-8 lg:mt-0"
-          >
+          <motion.div {...imageAnimation} className="relative mt-8 lg:mt-0">
             {/* Medical Image */}
             <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl mb-6 sm:mb-8">
               <img
                 src="/medica_nene.jpeg"
                 alt="Doctora profesional examinando a un niño en una consulta médica"
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover mobile-stable"
                 style={{ minHeight: "250px" }}
+                loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white">
@@ -150,7 +190,7 @@ const Hero = () => {
             </div>
 
             {/* Floating Stats Card */}
-            <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-lg">
+            <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-lg mobile-stable">
               <div className="flex items-center space-x-2 sm:space-x-3">
                 <div className="w-8 h-8 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center">
                   <Users className="w-4 h-4 sm:w-6 sm:h-6 text-blue-600" />
@@ -171,9 +211,7 @@ const Hero = () => {
 
       {/* Scroll Indicator */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
+        {...scrollAnimation}
         className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-gray-400 rounded-full flex justify-center">

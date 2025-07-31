@@ -13,8 +13,44 @@ import {
   Clock,
   CheckCircle,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Features = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Configuración de animaciones optimizada para móvil
+  const animationConfig = {
+    initial: isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: isMobile ? 0 : 0.8 },
+    viewport: { once: true },
+  };
+
+  const featureAnimation = {
+    initial: isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: isMobile ? 0 : 0.6 },
+    viewport: { once: true },
+  };
+
+  const benefitsAnimation = {
+    initial: isMobile ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 },
+    whileInView: { opacity: 1, x: 0 },
+    transition: { duration: isMobile ? 0 : 0.5 },
+    viewport: { once: true },
+  };
+
   const features = [
     {
       icon: MessageCircle,
@@ -82,16 +118,13 @@ const Features = () => {
   };
 
   return (
-    <section id="features" className="section-padding bg-white">
+    <section
+      id="features"
+      className="section-padding bg-white mobile-optimized"
+    >
       <div className="container-max">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="section-header"
-        >
+        <motion.div {...animationConfig} className="section-header">
           <h2 className="section-title">
             Características que Revolucionan la
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8]">
@@ -111,11 +144,14 @@ const Features = () => {
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{
+                duration: isMobile ? 0 : 0.6,
+                delay: isMobile ? 0 : index * 0.1,
+              }}
               viewport={{ once: true }}
-              className="card card-hover"
+              className="card card-hover mobile-stable"
             >
               <div
                 className={`icon-container ${getColorClasses(feature.color)}`}
@@ -134,11 +170,8 @@ const Features = () => {
 
         {/* Benefits Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-8 lg:p-12 mt-16"
+          {...animationConfig}
+          className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-8 lg:p-12 mt-16 mobile-stable"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -149,9 +182,14 @@ const Features = () => {
                 {benefits.map((benefit, index) => (
                   <motion.div
                     key={benefit}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={
+                      isMobile ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                    }
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    transition={{
+                      duration: isMobile ? 0 : 0.5,
+                      delay: isMobile ? 0 : index * 0.1,
+                    }}
                     viewport={{ once: true }}
                     className="flex items-center space-x-4"
                   >
@@ -169,7 +207,8 @@ const Features = () => {
                 <img
                   src="/doctortable.jpeg"
                   alt="Doctora profesional examinando a un niño en una consulta médica"
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-cover mobile-stable"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
@@ -180,7 +219,7 @@ const Features = () => {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="bg-white rounded-2xl p-8 shadow-lg mobile-stable">
                 <div className="flex items-center space-x-4 mb-6">
                   <div className="icon-container bg-blue-100">
                     <Smartphone className="w-6 h-6 text-blue-600" />

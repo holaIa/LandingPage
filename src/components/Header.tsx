@@ -8,14 +8,22 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Detectar scroll para cambiar la transparencia
+  // Detectar scroll para cambiar la transparencia - optimizado para móvil
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 10);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollTop = window.scrollY;
+          setIsScrolled(scrollTop > 10);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -30,7 +38,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 mobile-stable ${
         isScrolled
           ? "bg-white/70 backdrop-blur-md border-b border-gray-200/50"
           : "bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm"
@@ -46,6 +54,7 @@ const Header = () => {
               width={60}
               height={24}
               className="w-20 h-15"
+              priority
             />
           </div>
 
@@ -98,6 +107,7 @@ const Header = () => {
                 ? "text-gray-600 hover:text-blue-600 hover:bg-gray-100"
                 : "text-gray-600 hover:text-blue-600 hover:bg-gray-100"
             }`}
+            aria-label="Toggle menu"
           >
             {isMenuOpen ? (
               <X className="w-6 h-6" />
@@ -109,7 +119,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md">
+          <div className="md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md mobile-stable">
             <div className="px-4 py-4 space-y-4">
               {navigation.map((item) => (
                 <a

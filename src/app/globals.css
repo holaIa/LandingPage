@@ -46,7 +46,14 @@
   body {
     max-width: 100vw;
     overflow-x: hidden;
-    scroll-behavior: smooth;
+    /* Optimización para móvil - scroll más suave */
+    scroll-behavior: auto;
+    /* Prevenir zoom en iOS */
+    -webkit-text-size-adjust: 100%;
+    /* Mejorar rendimiento de scroll */
+    -webkit-overflow-scrolling: touch;
+    /* Prevenir saltos en móvil */
+    overscroll-behavior: none;
   }
 
   body {
@@ -54,6 +61,10 @@
     background: rgb(255 255 255);
     font-family: var(--font-sans);
     line-height: 1.7;
+    /* Prevenir reflow en móvil */
+    text-rendering: optimizeSpeed;
+    /* Mejorar rendimiento de animaciones */
+    will-change: auto;
   }
 
   a {
@@ -61,22 +72,103 @@
     text-decoration: none;
   }
 
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
+  /* Optimización para imágenes en móvil */
+  img {
+    max-width: 100%;
+    height: auto;
+    /* Prevenir layout shift */
+    aspect-ratio: attr(width) / attr(height);
   }
 
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+  /* Optimización para videos en móvil */
+  video {
+    max-width: 100%;
+    height: auto;
+    /* Prevenir layout shift */
+    aspect-ratio: 16 / 9;
   }
 
-  ::-webkit-scrollbar-thumb {
-    background: var(--color-primary-600);
-    border-radius: 4px;
+  /* Custom scrollbar - solo en desktop */
+  @media (min-width: 768px) {
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-primary-600);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-medical-blue);
+    }
   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-medical-blue);
+  /* Optimizaciones específicas para móvil */
+  @media (max-width: 767px) {
+    /* Deshabilitar animaciones complejas en móvil */
+    .mobile-disable-animations * {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+    }
+
+    /* Prevenir saltos de layout */
+    .mobile-stable-layout {
+      contain: layout style paint;
+    }
+
+    /* Optimizar scroll en móvil */
+    .mobile-smooth-scroll {
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: auto;
+    }
+  }
+
+  /* Estilos para preferencias de movimiento reducido */
+  .prefers-reduced-motion *,
+  .prefers-reduced-motion *::before,
+  .prefers-reduced-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Optimizaciones para dispositivos táctiles */
+  @media (hover: none) and (pointer: coarse) {
+    /* Mejorar la experiencia táctil */
+    button,
+    a,
+    [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Prevenir selección de texto accidental */
+    * {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* Permitir selección en campos de texto */
+    input,
+    textarea,
+    [contenteditable] {
+      -webkit-user-select: text;
+      -khtml-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
   }
 }
 
@@ -96,6 +188,9 @@
     font-size: 1rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
       0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* Prevenir saltos en móvil */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   @media (min-width: 640px) {
@@ -114,6 +209,13 @@
       0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
+  /* Optimización para móvil */
+  @media (max-width: 767px) {
+    .btn-primary:hover {
+      transform: none;
+    }
+  }
+
   .btn-secondary {
     background-color: white;
     color: var(--color-primary-600);
@@ -128,6 +230,9 @@
     font-size: 1rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
       0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* Prevenir saltos en móvil */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   @media (min-width: 640px) {
@@ -146,6 +251,13 @@
       0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
+  /* Optimización para móvil */
+  @media (max-width: 767px) {
+    .btn-secondary:hover {
+      transform: none;
+    }
+  }
+
   .btn-success {
     background-color: rgb(22 163 74);
     color: white;
@@ -160,6 +272,9 @@
     font-size: 1rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
       0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* Prevenir saltos en móvil */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   @media (min-width: 640px) {
@@ -178,6 +293,13 @@
       0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
+  /* Optimización para móvil */
+  @media (max-width: 767px) {
+    .btn-success:hover {
+      transform: none;
+    }
+  }
+
   /* Card styles */
   .card {
     background-color: white;
@@ -190,6 +312,8 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    /* Prevenir layout shift */
+    contain: layout style;
   }
 
   @media (min-width: 640px) {
@@ -204,6 +328,13 @@
     transform: translateY(-8px);
   }
 
+  /* Optimización para móvil */
+  @media (max-width: 767px) {
+    .card:hover {
+      transform: none;
+    }
+  }
+
   .card-hover {
     transition: all 0.3s ease;
     transform: scale(1);
@@ -213,9 +344,18 @@
     transform: scale(1.02);
   }
 
+  /* Optimización para móvil */
+  @media (max-width: 767px) {
+    .card-hover:hover {
+      transform: none;
+    }
+  }
+
   /* Section styles - MEJORADO PARA MÓVIL */
   .section-padding {
     padding: 4rem 1rem;
+    /* Prevenir layout shift */
+    contain: layout style;
   }
 
   @media (min-width: 640px) {
@@ -235,6 +375,8 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0 1rem;
+    /* Prevenir layout shift */
+    contain: layout style;
   }
 
   @media (min-width: 640px) {
@@ -258,6 +400,8 @@
     position: relative;
     overflow: hidden;
     padding: 6rem 1rem 4rem;
+    /* Prevenir layout shift */
+    contain: layout style;
   }
 
   @media (min-width: 640px) {
@@ -278,6 +422,8 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 2rem;
     margin-top: 4rem;
+    /* Prevenir layout shift */
+    contain: layout style;
   }
 
   @media (min-width: 768px) {
@@ -294,6 +440,8 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 2rem;
     margin-top: 4rem;
+    /* Prevenir layout shift */
+    contain: layout style;
   }
 
   @media (min-width: 768px) {
@@ -318,6 +466,8 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 2rem;
     margin-top: 4rem;
+    /* Prevenir layout shift */
+    contain: layout style;
   }
 
   @media (min-width: 768px) {
@@ -334,6 +484,8 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 2rem;
     margin-top: 4rem;
+    /* Prevenir layout shift */
+    contain: layout style;
   }
 
   @media (min-width: 768px) {
@@ -348,6 +500,8 @@
   .section-header {
     text-align: center;
     margin-bottom: 4rem;
+    /* Prevenir layout shift */
+    contain: layout style;
   }
 
   @media (min-width: 640px) {
@@ -368,6 +522,8 @@
     line-height: 1.1;
     margin-bottom: 1.5rem;
     color: rgb(17 24 39);
+    /* Prevenir layout shift */
+    contain: layout style;
   }
 
   @media (min-width: 640px) {
@@ -390,6 +546,8 @@
     max-width: 60rem;
     margin: 0 auto;
     line-height: 1.7;
+    /* Prevenir layout shift */
+    contain: layout style;
   }
 
   @media (min-width: 640px) {
@@ -413,6 +571,8 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
+    /* Prevenir layout shift */
+    contain: layout style;
   }
 
   @media (min-width: 640px) {
@@ -455,13 +615,24 @@
     }
   }
 
-  /* Background elements */
+  /* Background elements - OPTIMIZADO PARA MÓVIL */
   .background-blob {
     position: absolute;
     border-radius: 50%;
     filter: blur(80px);
     opacity: 0.7;
+    /* Deshabilitar animación en móvil para mejor rendimiento */
     animation: blob 7s infinite;
+    /* Prevenir layout shift */
+    contain: layout style;
+  }
+
+  /* Deshabilitar animaciones de blob en móvil */
+  @media (max-width: 767px) {
+    .background-blob {
+      animation: none;
+      opacity: 0.3;
+    }
   }
 
   .background-blob:nth-child(1) {
@@ -612,10 +783,37 @@
       margin-top: 6rem;
     }
   }
+
+  /* Optimizaciones específicas para móvil */
+  .mobile-optimized {
+    /* Prevenir layout shift */
+    contain: layout style;
+    /* Mejorar rendimiento de scroll */
+    will-change: auto;
+    /* Prevenir saltos */
+    transform: translateZ(0);
+  }
+
+  /* Clase para deshabilitar animaciones en móvil */
+  .mobile-no-animations {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
+  /* Optimización para videos en móvil */
+  .mobile-video-optimized {
+    /* Prevenir layout shift */
+    aspect-ratio: 16 / 9;
+    /* Mejorar rendimiento */
+    will-change: auto;
+    /* Prevenir saltos */
+    transform: translateZ(0);
+  }
 }
 
 @layer utilities {
-  /* Animation classes */
+  /* Animation classes - OPTIMIZADO PARA MÓVIL */
   .fade-in {
     animation: fadeIn 0.6s ease-in-out;
   }
@@ -628,6 +826,17 @@
     animation: slideInRight 0.8s ease-out;
   }
 
+  /* Deshabilitar animaciones en móvil */
+  @media (max-width: 767px) {
+    .fade-in,
+    .slide-in-left,
+    .slide-in-right {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   /* Gradient backgrounds */
   .gradient-bg {
     background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
@@ -635,6 +844,22 @@
 
   .medical-gradient {
     background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  }
+
+  /* Utilidades para móvil */
+  .mobile-stable {
+    /* Prevenir layout shift */
+    contain: layout style;
+    /* Mejorar rendimiento */
+    will-change: auto;
+    /* Prevenir saltos */
+    transform: translateZ(0);
+  }
+
+  .mobile-smooth {
+    /* Scroll suave en móvil */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
   }
 }
 

@@ -13,9 +13,21 @@ import { useRef, useEffect, useState } from "react";
 
 const PlatformShowcase = () => {
   const [visibleVideos, setVisibleVideos] = useState<Set<number>>(new Set());
+  const [isMobile, setIsMobile] = useState(false);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
-  // Función para manejar la intersección de videos
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Función para manejar la intersección de videos - optimizada para móvil
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -31,9 +43,17 @@ const PlatformShowcase = () => {
             // Reproducir el video
             const video = entry.target as HTMLVideoElement;
             if (video && video.paused) {
-              video.play().catch((error) => {
-                console.log("Error reproduciendo video:", error);
-              });
+              // En móvil, usar play() con manejo de errores más robusto
+              const playPromise = video.play();
+              if (playPromise !== undefined) {
+                playPromise.catch((error) => {
+                  console.log("Error reproduciendo video:", error);
+                  // En móvil, si falla el autoplay, mostrar controles
+                  if (isMobile) {
+                    video.controls = true;
+                  }
+                });
+              }
             }
           } else {
             // Video no está visible
@@ -52,8 +72,8 @@ const PlatformShowcase = () => {
         });
       },
       {
-        threshold: 0.5, // El video debe estar 50% visible para activarse
-        rootMargin: "0px 0px -100px 0px", // Margen adicional para activar antes
+        threshold: isMobile ? 0.3 : 0.5, // En móvil, activar con menos visibilidad
+        rootMargin: isMobile ? "0px 0px -50px 0px" : "0px 0px -100px 0px", // Margen más pequeño en móvil
       }
     );
 
@@ -67,7 +87,15 @@ const PlatformShowcase = () => {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [isMobile]);
+
+  // Configuración de animaciones optimizada para móvil
+  const animationConfig = {
+    initial: isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: isMobile ? 0 : 0.8 },
+    viewport: { once: true },
+  };
 
   const showcaseItems = [
     {
@@ -114,14 +142,14 @@ const PlatformShowcase = () => {
   ];
 
   return (
-    <section id="platform-showcase" className="section-padding bg-white">
+    <section
+      id="platform-showcase"
+      className="section-padding bg-white mobile-optimized"
+    >
       <div className="container-max">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          {...animationConfig}
           className="section-header text-center mb-16"
         >
           <h2 className="section-title">
@@ -143,11 +171,14 @@ const PlatformShowcase = () => {
           {showcaseItems.map((item, index) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 50 }}
+              initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
+              transition={{
+                duration: isMobile ? 0 : 0.8,
+                delay: isMobile ? 0 : index * 0.2,
+              }}
               viewport={{ once: true }}
-              className={`flex flex-col lg:flex-row gap-12 items-center ${
+              className={`flex flex-col lg:flex-row gap-12 items-center mobile-stable ${
                 index % 2 === 1 ? "lg:flex-row-reverse" : ""
               }`}
             >
@@ -190,29 +221,33 @@ const PlatformShowcase = () => {
               {/* Visual Content */}
               <div className="flex-1">
                 <div className="relative group">
-                  {/* Video Player */}
+                  {/* Video Player - optimizado para móvil */}
                   <video
                     ref={(el) => {
                       videoRefs.current[index] = el;
                     }}
                     data-video-index={index}
-                    className="w-full rounded-2xl shadow-lg aspect-video object-cover"
+                    className="w-full rounded-2xl shadow-lg aspect-video object-cover mobile-video-optimized"
                     controls
                     poster="/dashboard-metrics.png"
                     muted // Importante: los videos deben estar silenciados para autoplay
                     loop // Los videos se repiten automáticamente
+                    preload={isMobile ? "metadata" : "auto"} // Optimización para móvil
+                    playsInline // Importante para iOS
                   >
                     <source src={item.videoUrl} type="video/mp4" />
                     <source src={item.videoUrl} type="video/quicktime" />
                     Tu navegador no soporta el elemento de video.
                   </video>
 
-                  {/* Overlay for video play button on hover */}
-                  <div className="absolute inset-0 bg-black bg-opacity-10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-                    <div className="bg-white bg-opacity-90 p-4 rounded-full">
-                      <Play className="w-8 h-8 text-blue-600 ml-1" />
+                  {/* Overlay for video play button on hover - solo en desktop */}
+                  {!isMobile && (
+                    <div className="absolute inset-0 bg-black bg-opacity-10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                      <div className="bg-white bg-opacity-90 p-4 rounded-full">
+                        <Play className="w-8 h-8 text-blue-600 ml-1" />
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
                 {/* Alternative: If you have actual images, you can use this structure */}
@@ -236,13 +271,7 @@ const PlatformShowcase = () => {
         </div>
 
         {/* Video Modal Placeholder */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mt-20 text-center"
-        >
+        <motion.div {...animationConfig} className="mt-20 text-center">
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-12">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               ¿Quieres Ver Más?
