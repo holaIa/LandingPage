@@ -88,7 +88,9 @@ const Header = () => {
               Iniciar Sesión
             </a>
             <a
-              href="#demo"
+              href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratis%20de%20HolaIA"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                 isScrolled
                   ? "bg-blue-600 text-white hover:bg-blue-700"
@@ -140,7 +142,9 @@ const Header = () => {
                   Iniciar Sesión
                 </a>
                 <a
-                  href="#demo"
+                  href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratis%20de%20HolaIA"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-primary block text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >

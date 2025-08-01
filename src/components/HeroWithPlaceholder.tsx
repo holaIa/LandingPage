@@ -68,7 +68,12 @@ const HeroWithPlaceholder = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-6 justify-start items-center mb-16"
             >
-              <a href="#demo" className="btn-primary text-lg px-8 py-4">
+              <a
+                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratis%20de%20HolaIA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary text-lg px-8 py-4"
+              >
                 <span>Solicitar Demo Gratis</span>
                 <ArrowRight className="w-6 h-6" />
               </a>

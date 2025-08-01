@@ -206,16 +206,21 @@ const PlatformShowcase = () => {
                   ))}
                 </ul>
 
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <button className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                {/* <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  <a
+                    href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20ver%20una%20demo%20de%20HolaIA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                  >
                     Ver Demo
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </a>
                   <button className="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors">
                     <Maximize2 className="w-4 h-4" />
                     Ampliar
                   </button>
-                </div>
+                </div> */}
               </div>
 
               {/* Visual Content */}
@@ -281,12 +286,17 @@ const PlatformShowcase = () => {
               puede transformar tu práctica médica en tan solo 30 minutos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+              <a
+                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20personalizada%20de%20HolaIA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              >
                 Solicitar Demo Personalizada
-              </button>
-              <button className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors">
+              </a>
+              {/* <button className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors">
                 Ver Casos de Éxito
-              </button>
+              </button> */}
             </div>
           </div>
         </motion.div>

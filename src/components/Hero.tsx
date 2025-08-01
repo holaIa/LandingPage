@@ -117,16 +117,14 @@ const Hero = () => {
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-start items-center mb-12 sm:mb-16"
             >
               <a
-                href="#demo"
+                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratis%20de%20HolaIA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto text-center"
               >
                 <span>Solicitar Demo Gratis</span>
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
-              <button className="btn-secondary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto text-center">
-                <Play className="w-5 h-5 sm:w-6 sm:h-6" />
-                <span>Ver Video Demo</span>
-              </button>
             </motion.div>
 
             {/* Stats */}

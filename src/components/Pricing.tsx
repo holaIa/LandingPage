@@ -92,7 +92,8 @@ const Pricing = () => {
           <p className="section-subtitle">
             Elige el plan que mejor se adapte a las necesidades de tu clínica.
             Todos incluyen soporte técnico especializado y actualizaciones
-            gratuitas.
+            gratuitas. El costo por implementación es de $9,900 para todos los
+            paquetes.
           </p>
         </motion.div>
 
@@ -234,9 +235,14 @@ const Pricing = () => {
               <p className="text-gray-600 mb-12 text-xl leading-relaxed">
                 Contáctanos para discutir tus necesidades específicas
               </p>
-              <button className="btn-primary w-full text-xl py-6">
+              <a
+                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20cotización%20personalizada%20para%20mi%20clínica.%20¿Podrían%20contactarme%20para%20discutir%20mis%20necesidades%20específicas?"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary w-full text-xl py-6 flex items-center justify-center"
+              >
                 Solicitar Cotización
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>

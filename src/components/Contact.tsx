@@ -10,8 +10,55 @@ import {
   Send,
   CheckCircle,
 } from "lucide-react";
+import { useState } from "react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    clinic: "",
+    patients: "",
+    message: "",
+  });
+
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Crear mensaje personalizado para WhatsApp
+    const message = `Hola, me interesa solicitar una demo gratis de HolaIA
+
+*Información de contacto:*
+• Nombre: ${formData.firstName} ${formData.lastName}
+• Email: ${formData.email}
+• Teléfono: ${formData.phone}
+• Clínica: ${formData.clinic}
+• Número de pacientes: ${formData.patients}
+${formData.message ? `• Mensaje: ${formData.message}` : ""}
+
+¿Podrían contactarme para agendar una demo?`;
+
+    // Codificar el mensaje para la URL de WhatsApp
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/523315128570?text=${encodedMessage}`;
+
+    // Abrir WhatsApp en nueva pestaña
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <section id="contact" className="section-padding bg-gray-50">
       <div className="container-max">
@@ -48,7 +95,7 @@ const Contact = () => {
             <h3 className="text-3xl font-bold text-gray-900 mb-8">
               Solicita tu Demo Gratis
             </h3>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label
@@ -61,6 +108,8 @@ const Contact = () => {
                     type="text"
                     id="firstName"
                     name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg"
                     placeholder="Tu nombre"
                     required
@@ -77,6 +126,8 @@ const Contact = () => {
                     type="text"
                     id="lastName"
                     name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg"
                     placeholder="Tu apellido"
                     required
@@ -95,6 +146,8 @@ const Contact = () => {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg"
                   placeholder="tu@email.com"
                   required
@@ -112,6 +165,8 @@ const Contact = () => {
                   type="tel"
                   id="phone"
                   name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg"
                   placeholder="+1 (555) 123-4567"
                   required
@@ -129,6 +184,8 @@ const Contact = () => {
                   type="text"
                   id="clinic"
                   name="clinic"
+                  value={formData.clinic}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg"
                   placeholder="Nombre de tu clínica"
                   required
@@ -145,6 +202,8 @@ const Contact = () => {
                 <select
                   id="patients"
                   name="patients"
+                  value={formData.patients}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg"
                   required
                 >
@@ -167,15 +226,20 @@ const Contact = () => {
                 <textarea
                   id="message"
                   name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   rows={4}
                   className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg"
                   placeholder="Cuéntanos sobre tus necesidades específicas..."
                 ></textarea>
               </div>
 
-              <button type="submit" className="w-full btn-primary text-lg py-4">
+              <button
+                type="submit"
+                className="w-full btn-primary text-lg py-4 flex items-center justify-center"
+              >
                 <Send className="w-6 h-6" />
-                <span>Solicitar Demo Gratis</span>
+                <span>Enviar por WhatsApp</span>
               </button>
             </form>
           </motion.div>
@@ -211,9 +275,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 text-lg">
-                      Teléfono
+                      WhatsApp
                     </h4>
-                    <p className="text-gray-600 text-lg">+1 (555) 123-4567</p>
+                    <p className="text-gray-600 text-lg">+52 33 1512 8570</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-6">
@@ -225,7 +289,7 @@ const Contact = () => {
                       Oficina
                     </h4>
                     <p className="text-gray-600 text-lg">
-                      Ciudad de México, México
+                      Zapopan, Jalisco, México
                     </p>
                   </div>
                 </div>
@@ -258,9 +322,14 @@ const Contact = () => {
                   </p>
                 </div>
               </div>
-              <button className="w-full bg-white text-green-600 font-semibold py-4 px-6 rounded-xl hover:bg-green-50 transition-colors duration-200 text-lg">
+              <a
+                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20HolaIA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-white text-green-600 font-semibold py-4 px-6 rounded-xl hover:bg-green-50 transition-colors duration-200 text-lg block text-center"
+              >
                 Chatear por WhatsApp
-              </button>
+              </a>
             </div>
 
             {/* Why Choose Us */}

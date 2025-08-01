@@ -174,12 +174,12 @@ const Agents = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2">
+                {/* <div className="flex items-center space-x-2">
                   <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current" />
                   <span className="text-base sm:text-lg font-semibold text-gray-900">
                     {agent.rating}
                   </span>
-                </div>
+                </div> */}
               </div>
 
               {/* Description */}
@@ -206,12 +206,12 @@ const Agents = () => {
 
               {/* Stats */}
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-4 sm:pt-6 border-t border-gray-100 space-y-2 sm:space-y-0">
-                <div className="flex items-center space-x-2 sm:space-x-3">
+                {/* <div className="flex items-center space-x-2 sm:space-x-3">
                   <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                   <span className="text-gray-600 font-medium text-sm sm:text-base">
                     {agent.conversations} conversaciones
                   </span>
-                </div>
+                </div> */}
                 <div className="flex items-center space-x-2 sm:space-x-3">
                   <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                   <span className="text-gray-600 font-medium text-sm sm:text-base">
