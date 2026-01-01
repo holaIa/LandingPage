@@ -389,11 +389,11 @@ const Platform = () => {
           </h3>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             Únete a cientos de profesionales de la salud que ya confían en
-            HolaIA para optimizar su gestión y mejorar la atención al paciente.
+            MediTeam para optimizar su gestión y mejorar la atención al paciente.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratuita%20de%20HolaIA"
+              href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratuita%20de%20MediTeam"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"

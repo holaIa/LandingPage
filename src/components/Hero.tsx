@@ -5,9 +5,8 @@ import {
   MessageCircle,
   Calendar,
   Users,
-  Zap,
   ArrowRight,
-  Play,
+  CheckCircle,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -62,142 +61,109 @@ const Hero = () => {
     transition: { duration: isMobile ? 0 : 0.8, delay: isMobile ? 0 : 0.4 },
   };
 
-  const scrollAnimation = {
-    initial: isMobile ? { opacity: 1 } : { opacity: 0 },
-    animate: { opacity: 1 },
-    transition: { duration: isMobile ? 0 : 1, delay: isMobile ? 0 : 1.2 },
-  };
-
   return (
     <section
       id="home"
-      className="hero-section bg-gradient-to-br from-blue-50 via-white to-purple-50 mobile-optimized"
+      className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="background-blob"></div>
-      <div className="background-blob"></div>
-      <div className="background-blob"></div>
+      {/* Background Elements - más sutiles */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+      </div>
 
-      <div className="container-max relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="text-left">
+      <div className="container-max relative z-10 py-20 lg:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Column - Content */}
+          <div className="text-left space-y-8">
             {/* Badge */}
             <motion.div
               {...animationConfig}
-              className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-blue-100 text-blue-800 text-sm sm:text-base font-semibold mb-6 sm:mb-8 shadow-sm"
+              className="inline-flex items-center px-4 py-2 rounded-full bg-primary-50 text-primary-600 text-sm font-semibold border border-primary-100"
             >
-              <Zap className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-              Revoluciona tu práctica médica con IA
+              <MessageCircle className="w-4 h-4 mr-2" />
+              IA Médica de Nueva Generación
             </motion.div>
 
-            {/* Main Heading */}
+            {/* Main Heading - estilo Heidi Health */}
             <motion.h1
               {...titleAnimation}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-text-primary leading-tight"
             >
-              CRM Médico Inteligente con
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8] block">
-                Agentes de IA
-              </span>
+              Haz que tu próxima{" "}
+              <span className="text-primary-500">consulta</span> sea la mejor.
             </motion.h1>
 
-            {/* Subtitle */}
+            {/* Subtitle - más conciso */}
             <motion.p
               {...subtitleAnimation}
-              className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-8 sm:mb-12 max-w-2xl leading-relaxed"
+              className="text-lg sm:text-xl lg:text-2xl text-text-secondary max-w-2xl leading-relaxed"
             >
-              Automatiza la gestión de citas por WhatsApp, optimiza la atención
-              al paciente y aumenta la eficiencia de tu clínica con agentes de
-              IA especializados en el sector médico.
+              MediTeam te libera de la administración para que puedas disfrutar
+              del trabajo, tomar un descanso y llegar a casa a tiempo.
             </motion.p>
 
             {/* CTA Buttons */}
             <motion.div
               {...buttonsAnimation}
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-start items-center mb-12 sm:mb-16"
+              className="flex flex-col sm:flex-row gap-4 justify-start items-center"
             >
               <a
-                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratis%20de%20HolaIA"
+                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratis%20de%20MediTeam"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto text-center"
+                className="btn-primary text-base sm:text-lg px-8 py-4 w-full sm:w-auto text-center"
               >
-                <span>Solicitar Demo Gratis</span>
-                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                <span>Prueba MediTeam gratis</span>
+                <ArrowRight className="w-5 h-5" />
               </a>
             </motion.div>
 
-            {/* Stats */}
-            <motion.div {...statsAnimation} className="stats-grid">
-              <div className="text-center">
-                <div className="icon-container bg-blue-100 mx-auto">
-                  <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-3">
-                  90%
-                </h3>
-                <p className="text-gray-600 text-base sm:text-lg">
-                  Reducción en tiempo de gestión
-                </p>
+            {/* Quick Benefits - estilo Heidi */}
+            <motion.div
+              {...statsAnimation}
+              className="flex flex-wrap gap-6 pt-4"
+            >
+              <div className="flex items-center space-x-2 text-text-secondary">
+                <CheckCircle className="w-5 h-5 text-success flex-shrink-0" />
+                <span className="text-sm font-medium">Sin tarjeta de crédito</span>
               </div>
-              <div className="text-center">
-                <div className="icon-container bg-green-100 mx-auto">
-                  <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-3">
-                  24/7
-                </h3>
-                <p className="text-gray-600 text-base sm:text-lg">
-                  Atención automática disponible
-                </p>
+              <div className="flex items-center space-x-2 text-text-secondary">
+                <CheckCircle className="w-5 h-5 text-success flex-shrink-0" />
+                <span className="text-sm font-medium">Configuración en minutos</span>
               </div>
-              <div className="text-center">
-                <div className="icon-container bg-purple-100 mx-auto">
-                  <Users className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-3">
-                  500+
-                </h3>
-                <p className="text-gray-600 text-base sm:text-lg">
-                  Clínicas confían en nosotros
-                </p>
+              <div className="flex items-center space-x-2 text-text-secondary">
+                <CheckCircle className="w-5 h-5 text-success flex-shrink-0" />
+                <span className="text-sm font-medium">Soporte 24/7</span>
               </div>
             </motion.div>
           </div>
 
-          {/* Hero Image and Chat Preview */}
+          {/* Right Column - Image */}
           <motion.div {...imageAnimation} className="relative mt-8 lg:mt-0">
             {/* Medical Image */}
-            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl mb-6 sm:mb-8">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl">
               <img
                 src="/medica_nene.jpeg"
                 alt="Doctora profesional examinando a un niño en una consulta médica"
                 className="w-full h-auto object-cover mobile-stable"
-                style={{ minHeight: "250px" }}
+                style={{ minHeight: "400px" }}
                 loading="eager"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white">
-                <p className="text-base sm:text-lg font-semibold">
-                  Atención Personalizada
-                </p>
-                <p className="text-xs sm:text-sm opacity-90">
-                  Cuidado profesional con IA
-                </p>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
             </div>
 
-            {/* Floating Stats Card */}
-            <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-lg mobile-stable">
-              <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="w-8 h-8 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                  <Users className="w-4 h-4 sm:w-6 sm:h-6 text-blue-600" />
+            {/* Floating Stats Card - más sutil */}
+            <div className="absolute -bottom-6 -left-6 bg-background-paper rounded-xl p-4 shadow-lg border border-background-subtle mobile-stable hidden sm:block">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center">
+                  <Users className="w-5 h-5 text-primary-500" />
                 </div>
                 <div>
-                  <p className="text-xs sm:text-sm text-gray-600">
+                  <p className="text-xs text-text-muted font-medium">
                     Pacientes atendidos
                   </p>
-                  <p className="text-sm sm:text-lg font-bold text-gray-900">
+                  <p className="text-lg font-bold text-text-primary">
                     10,000+
                   </p>
                 </div>
@@ -205,17 +171,40 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
-      </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        {...scrollAnimation}
-        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-gray-400 rounded-full flex justify-center">
-          <div className="w-1 h-2 sm:h-3 bg-gray-400 rounded-full mt-1 sm:mt-2 animate-bounce"></div>
-        </div>
-      </motion.div>
+        {/* Stats Section - estilo Heidi Health */}
+        <motion.div
+          initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: isMobile ? 0 : 0.8, delay: isMobile ? 0 : 1 }}
+          className="mt-20 lg:mt-32 grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12"
+        >
+          <div className="text-center">
+            <div className="text-4xl lg:text-5xl font-bold text-text-primary mb-2">
+              90%
+            </div>
+            <p className="text-text-secondary text-lg">
+              Reducción en tiempo de gestión
+            </p>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl lg:text-5xl font-bold text-text-primary mb-2">
+              24/7
+            </div>
+            <p className="text-text-secondary text-lg">
+              Atención automática disponible
+            </p>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl lg:text-5xl font-bold text-text-primary mb-2">
+              500+
+            </div>
+            <p className="text-text-secondary text-lg">
+              Clínicas confían en nosotros
+            </p>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };

@@ -39,7 +39,7 @@ const Contact = () => {
     e.preventDefault();
 
     // Crear mensaje personalizado para WhatsApp
-    const message = `Hola, me interesa solicitar una demo gratis de HolaIA
+    const message = `Hola, me interesa solicitar una demo gratis de MediTeam
 
 *Información de contacto:*
 • Nombre: ${formData.firstName} ${formData.lastName}
@@ -78,7 +78,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
             </span>
           </h2>
           <p className="section-subtitle">
-            Contáctanos hoy mismo y descubre cómo HolaIA puede transformar la
+            Contáctanos hoy mismo y descubre cómo MediTeam puede transformar la
             gestión de tu clínica con la potencia de la inteligencia artificial.
           </p>
         </motion.div>
@@ -323,7 +323,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                 </div>
               </div>
               <a
-                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20HolaIA"
+                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20MediTeam"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-white text-green-600 font-semibold py-4 px-6 rounded-xl hover:bg-green-50 transition-colors duration-200 text-lg block text-center"
@@ -335,7 +335,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
             {/* Why Choose Us */}
             <div className="bg-white rounded-3xl p-8 shadow-lg">
               <h3 className="text-3xl font-bold text-gray-900 mb-8">
-                ¿Por qué Elegir HolaIA?
+                ¿Por qué Elegir MediTeam?
               </h3>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">

@@ -120,24 +120,113 @@ const Features = () => {
   return (
     <section
       id="features"
-      className="section-padding bg-white mobile-optimized"
+      className="section-padding bg-background-paper mobile-optimized"
     >
       <div className="container-max">
         {/* Section Header */}
         <motion.div {...animationConfig} className="section-header">
           <h2 className="section-title">
-            Características que Revolucionan la
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8]">
-              {" "}
-              Atención Médica
-            </span>
+            Trabajando con MediTeam
           </h2>
           <p className="section-subtitle">
-            Nuestro CRM médico combina la potencia de la IA con la simplicidad
-            de uso para transformar completamente la gestión de tu práctica
-            médica.
+            Haz que tu próxima consulta sea la mejor. MediTeam te libera de la
+            administración para que puedas disfrutar del trabajo, tomar un
+            descanso y llegar a casa a tiempo.
           </p>
         </motion.div>
+
+        {/* Workflow Section - estilo Heidi Health */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mb-20">
+          <motion.div
+            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: isMobile ? 0 : 0.6 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <div className="text-4xl font-bold text-text-primary mb-4">
+              Antes de la consulta
+            </div>
+            <p className="text-text-secondary text-lg mb-6">
+              Revisa historial, notas y resultados en un solo lugar, sincroniza
+              horarios y entra preparado con hallazgos clave.
+            </p>
+            <div className="space-y-4">
+              <div className="flex items-center justify-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-success" />
+                <span className="text-text-secondary">Historial completo</span>
+              </div>
+              <div className="flex items-center justify-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-success" />
+                <span className="text-text-secondary">Sincronización de horarios</span>
+              </div>
+              <div className="flex items-center justify-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-success" />
+                <span className="text-text-secondary">Hallazgos clave</span>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: isMobile ? 0 : 0.6, delay: isMobile ? 0 : 0.2 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <div className="text-4xl font-bold text-text-primary mb-4">
+              Durante la consulta
+            </div>
+            <p className="text-text-secondary text-lg mb-6">
+              Transcribe visitas en múltiples idiomas, estructura notas a tu
+              manera y genera referencias e información al instante.
+            </p>
+            <div className="space-y-4">
+              <div className="flex items-center justify-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-success" />
+                <span className="text-text-secondary">Transcripción automática</span>
+              </div>
+              <div className="flex items-center justify-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-success" />
+                <span className="text-text-secondary">Notas estructuradas</span>
+              </div>
+              <div className="flex items-center justify-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-success" />
+                <span className="text-text-secondary">Referencias instantáneas</span>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: isMobile ? 0 : 0.6, delay: isMobile ? 0 : 0.4 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <div className="text-4xl font-bold text-text-primary mb-4">
+              Después de la consulta
+            </div>
+            <p className="text-text-secondary text-lg mb-6">
+              Envía todo a tu EHR con un clic, aplica códigos y tareas
+              automáticamente, y termina tu día a tiempo sin acumulación.
+            </p>
+            <div className="space-y-4">
+              <div className="flex items-center justify-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-success" />
+                <span className="text-text-secondary">Integración con EHR</span>
+              </div>
+              <div className="flex items-center justify-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-success" />
+                <span className="text-text-secondary">Códigos automáticos</span>
+              </div>
+              <div className="flex items-center justify-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-success" />
+                <span className="text-text-secondary">Sin acumulación</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
 
         {/* Features Grid */}
         <div className="features-grid">
@@ -158,10 +247,10 @@ const Features = () => {
               >
                 <feature.icon className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-xl font-semibold text-text-primary mb-4">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed flex-grow">
+              <p className="text-text-secondary leading-relaxed flex-grow">
                 {feature.description}
               </p>
             </motion.div>
@@ -171,11 +260,11 @@ const Features = () => {
         {/* Benefits Section */}
         <motion.div
           {...animationConfig}
-          className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-8 lg:p-12 mt-16 mobile-stable"
+          className="bg-primary-50 rounded-3xl p-8 lg:p-12 mt-16 mobile-stable border border-primary-100"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-8">
+              <h3 className="text-2xl lg:text-3xl font-bold text-text-primary mb-8">
                 Beneficios Tangibles para tu Clínica
               </h3>
               <div className="space-y-6">
@@ -194,9 +283,9 @@ const Features = () => {
                     className="flex items-center space-x-4"
                   >
                     <div className="flex-shrink-0">
-                      <CheckCircle className="w-6 h-6 text-green-600" />
+                      <CheckCircle className="w-6 h-6 text-success" />
                     </div>
-                    <span className="text-gray-700 text-lg">{benefit}</span>
+                    <span className="text-text-primary text-lg">{benefit}</span>
                   </motion.div>
                 ))}
               </div>
@@ -219,30 +308,30 @@ const Features = () => {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg mobile-stable">
+              <div className="bg-background-paper rounded-2xl p-8 shadow-lg mobile-stable border border-background-subtle">
                 <div className="flex items-center space-x-4 mb-6">
-                  <div className="icon-container bg-blue-100">
-                    <Smartphone className="w-6 h-6 text-blue-600" />
+                  <div className="icon-container bg-primary-50">
+                    <Smartphone className="w-6 h-6 text-primary-500" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 text-lg">
+                    <h4 className="font-semibold text-text-primary text-lg">
                       WhatsApp Business
                     </h4>
-                    <p className="text-sm text-gray-600">Integración nativa</p>
+                    <p className="text-sm text-text-secondary">Integración nativa</p>
                   </div>
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Respuesta automática</span>
-                    <Clock className="w-5 h-5 text-green-600" />
+                    <span className="text-text-secondary">Respuesta automática</span>
+                    <Clock className="w-5 h-5 text-success" />
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Gestión de citas</span>
-                    <Calendar className="w-5 h-5 text-blue-600" />
+                    <span className="text-text-secondary">Gestión de citas</span>
+                    <Calendar className="w-5 h-5 text-primary-500" />
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Recordatorios</span>
-                    <Zap className="w-5 h-5 text-purple-600" />
+                    <span className="text-text-secondary">Recordatorios</span>
+                    <Zap className="w-5 h-5 text-warning" />
                   </div>
                 </div>
               </div>

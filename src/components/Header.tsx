@@ -40,8 +40,8 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 mobile-stable ${
         isScrolled
-          ? "bg-white/70 backdrop-blur-md border-b border-gray-200/50"
-          : "bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm"
+          ? "bg-background-paper/80 backdrop-blur-md border-b border-background-subtle"
+          : "bg-background-paper/95 backdrop-blur-md border-b border-background-subtle shadow-sm"
       }`}
     >
       <div className="container-max">
@@ -50,10 +50,10 @@ const Header = () => {
           <div className="flex items-center space-x-2">
             <Image
               src="/logo.png"
-              alt="HolaIA Logo"
-              width={60}
-              height={24}
-              className="w-20 h-15"
+              alt="MediTeam Logo"
+              width={50}
+              height={50}
+              className="w-12 h-12"
               priority
             />
           </div>
@@ -66,8 +66,8 @@ const Header = () => {
                 href={item.href}
                 className={`font-medium transition-colors duration-300 ${
                   isScrolled
-                    ? "text-gray-600 hover:text-blue-600"
-                    : "text-gray-600 hover:text-blue-600"
+                    ? "text-text-secondary hover:text-primary-500"
+                    : "text-text-secondary hover:text-primary-500"
                 }`}
               >
                 {item.name}
@@ -81,21 +81,17 @@ const Header = () => {
               href="#contact"
               className={`font-medium transition-colors duration-300 ${
                 isScrolled
-                  ? "text-gray-600 hover:text-blue-600"
-                  : "text-gray-600 hover:text-blue-600"
+                  ? "text-text-secondary hover:text-primary-500"
+                  : "text-text-secondary hover:text-primary-500"
               }`}
             >
               Iniciar Sesión
             </a>
             <a
-              href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratis%20de%20HolaIA"
+              href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratis%20de%20MediTeam"
               target="_blank"
               rel="noopener noreferrer"
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                isScrolled
-                  ? "bg-blue-600 text-white hover:bg-blue-700"
-                  : "bg-blue-600 text-white hover:bg-blue-700"
-              }`}
+              className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-primary-500 text-white hover:bg-primary-600`}
             >
               Solicitar Demo
             </a>
@@ -104,11 +100,7 @@ const Header = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`md:hidden p-2 rounded-md transition-colors duration-300 ${
-              isScrolled
-                ? "text-gray-600 hover:text-blue-600 hover:bg-gray-100"
-                : "text-gray-600 hover:text-blue-600 hover:bg-gray-100"
-            }`}
+            className={`md:hidden p-2 rounded-md transition-colors duration-300 text-text-secondary hover:text-primary-500 hover:bg-background-subtle`}
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
@@ -121,13 +113,13 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md mobile-stable">
+          <div className="md:hidden border-t border-background-subtle bg-background-paper/95 backdrop-blur-md mobile-stable">
             <div className="px-4 py-4 space-y-4">
               {navigation.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200"
+                  className="block text-text-secondary hover:text-primary-500 font-medium transition-colors duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -136,13 +128,13 @@ const Header = () => {
               <div className="pt-4 space-y-3">
                 <a
                   href="#contact"
-                  className="block text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200"
+                  className="block text-text-secondary hover:text-primary-500 font-medium transition-colors duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Iniciar Sesión
                 </a>
                 <a
-                  href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratis%20de%20HolaIA"
+                  href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratis%20de%20MediTeam"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary block text-center"

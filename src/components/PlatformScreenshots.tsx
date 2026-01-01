@@ -66,7 +66,7 @@ const PlatformScreenshots = () => {
         <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
           <MessageCircle className="w-5 h-5 text-white" />
         </div>
-        <span className="font-bold text-blue-900">HolaIA</span>
+        <span className="font-bold text-blue-900">MediTeam</span>
       </div>
 
       {/* Navigation */}
@@ -487,7 +487,7 @@ const PlatformScreenshots = () => {
           </div>
           <div className="flex-1 flex items-center justify-center">
             <span className="text-sm text-gray-600">
-              HolaIA - {screenshot.title}
+              MediTeam - {screenshot.title}
             </span>
           </div>
         </div>
@@ -524,7 +524,7 @@ const PlatformScreenshots = () => {
           </h2>
           <p className="section-subtitle max-w-3xl mx-auto">
             Descubre cómo se ve y funciona nuestra plataforma con estas capturas
-            de pantalla que muestran las principales funcionalidades de HolaIA.
+            de pantalla que muestran las principales funcionalidades de MediTeam.
           </p>
         </motion.div>
 
@@ -565,7 +565,7 @@ const PlatformScreenshots = () => {
               ¿Te Gusta Lo Que Ves?
             </h3>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Estas son solo algunas de las funcionalidades de HolaIA. Solicita
+              Estas son solo algunas de las funcionalidades de MediTeam. Solicita
               una demostración personalizada para ver todo el potencial de
               nuestra plataforma.
             </p>

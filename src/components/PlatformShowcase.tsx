@@ -46,8 +46,7 @@ const PlatformShowcase = () => {
               // En móvil, usar play() con manejo de errores más robusto
               const playPromise = video.play();
               if (playPromise !== undefined) {
-                playPromise.catch((error) => {
-                  console.log("Error reproduciendo video:", error);
+                playPromise.catch(() => {
                   // En móvil, si falla el autoplay, mostrar controles
                   if (isMobile) {
                     video.controls = true;
@@ -160,7 +159,7 @@ const PlatformShowcase = () => {
             </span>
           </h2>
           <p className="section-subtitle max-w-3xl mx-auto">
-            Descubre cómo HolaIA transforma la gestión médica con una interfaz
+            Descubre cómo MediTeam transforma la gestión médica con una interfaz
             intuitiva y funcionalidades avanzadas que optimizan tu práctica
             diaria.
           </p>
@@ -208,7 +207,7 @@ const PlatformShowcase = () => {
 
                 {/* <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <a
-                    href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20ver%20una%20demo%20de%20HolaIA"
+                    href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20ver%20una%20demo%20de%20MediTeam"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
@@ -282,12 +281,12 @@ const PlatformShowcase = () => {
               ¿Quieres Ver Más?
             </h3>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Solicita una demostración personalizada y descubre cómo HolaIA
+              Solicita una demostración personalizada y descubre cómo MediTeam
               puede transformar tu práctica médica en tan solo 30 minutos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20personalizada%20de%20HolaIA"
+                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20personalizada%20de%20MediTeam"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"

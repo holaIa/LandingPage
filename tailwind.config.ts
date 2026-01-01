@@ -10,21 +10,50 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          50: "#eff6ff",
-          100: "#dbeafe",
-          200: "#bfdbfe",
-          300: "#93c5fd",
-          400: "#60a5fa",
-          500: "#3b82f6",
-          600: "#2563eb",
-          700: "#1d4ed8",
-          800: "#1e40af",
-          900: "#1e3a8a",
+          50: "#EFF6FF",
+          100: "#DBEAFE",
+          200: "#BFDBFE",
+          300: "#93C5FD",
+          400: "#60A5FA",
+          500: "#2563EB", // Main primary color from app
+          600: "#1D4ED8",
+          700: "#1E40AF",
+          800: "#1E3A8A",
+          900: "#1E3A5F",
         },
-        medical: {
-          blue: "#1e40af",
-          green: "#059669",
-          purple: "#8b5cf6",
+        background: {
+          DEFAULT: "#F7FAFC", // Main background from app
+          subtle: "#EDF2F7",
+          paper: "#FFFFFF",
+        },
+        text: {
+          primary: "#1A202C",
+          secondary: "#718096",
+          muted: "#A0AEC0",
+        },
+        success: {
+          DEFAULT: "#22C55E",
+          light: "#86EFAC",
+          dark: "#16A34A",
+        },
+        error: {
+          DEFAULT: "#EF4444",
+          light: "#FCA5A5",
+          dark: "#DC2626",
+        },
+        warning: {
+          DEFAULT: "#F59E0B",
+          light: "#FCD34D",
+          dark: "#D97706",
+        },
+        sidebar: {
+          DEFAULT: "#FFFFFF",
+          light: "#F7FAFC",
+          dark: "#EDF2F7",
+          text: "#718096",
+          muted: "#A0AEC0",
+          active: "#2563EB",
+          hover: "#F7FAFC",
         },
       },
       animation: {
@@ -65,7 +94,7 @@ const config: Config = {
         "medical-gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Plus Jakarta Sans", "Inter", "system-ui", "sans-serif"],
       },
       spacing: {
         "18": "4.5rem",

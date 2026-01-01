@@ -9,34 +9,34 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "¿Cómo HolaIA evita errores en la gestión de citas?",
+      question: "¿Cómo MediTeam evita errores en la gestión de citas?",
       answer:
         "Nuestros agentes de IA están entrenados específicamente en el sector médico y utilizan algoritmos avanzados para validar información, confirmar citas y detectar inconsistencias antes de que ocurran errores.",
     },
     {
-      question: "¿Qué otras tareas puede optimizar HolaIA?",
+      question: "¿Qué otras tareas puede optimizar MediTeam?",
       answer:
-        "HolaIA puede optimizar la gestión de expedientes médicos, recordatorios de medicamentos, seguimiento post-consulta, encuestas de satisfacción, y la coordinación entre diferentes especialistas.",
+        "MediTeam puede optimizar la gestión de expedientes médicos, recordatorios de medicamentos, seguimiento post-consulta, encuestas de satisfacción, y la coordinación entre diferentes especialistas.",
     },
     {
-      question: "¿La IA de HolaIA aprende sola y evoluciona?",
+      question: "¿La IA de MediTeam aprende sola y evoluciona?",
       answer:
         "Sí, nuestros agentes de IA aprenden continuamente de cada interacción, mejorando sus respuestas y adaptándose a las necesidades específicas de tu clínica y pacientes.",
     },
     {
-      question: "¿Se puede personalizar HolaIA para cada clínica?",
+      question: "¿Se puede personalizar MediTeam para cada clínica?",
       answer:
-        "Absolutamente. HolaIA se adapta a las políticas, horarios, especialidades y flujos de trabajo específicos de cada clínica, manteniendo la identidad y procesos únicos de tu práctica médica.",
+        "Absolutamente. MediTeam se adapta a las políticas, horarios, especialidades y flujos de trabajo específicos de cada clínica, manteniendo la identidad y procesos únicos de tu práctica médica.",
     },
     {
-      question: "¿Cuánto tiempo toma implementar HolaIA?",
+      question: "¿Cuánto tiempo toma implementar MediTeam?",
       answer:
         "La implementación básica toma 24-48 horas. Para configuraciones más complejas o integraciones personalizadas, el proceso puede extenderse a 1-2 semanas con nuestro equipo de soporte.",
     },
     {
-      question: "¿Se puede integrar HolaIA con nuestros sistemas existentes?",
+      question: "¿Se puede integrar MediTeam con nuestros sistemas existentes?",
       answer:
-        "Sí, HolaIA se integra con la mayoría de sistemas médicos, laboratorios, farmacias y herramientas de gestión. Ofrecemos APIs personalizadas para integraciones específicas.",
+        "Sí, MediTeam se integra con la mayoría de sistemas médicos, laboratorios, farmacias y herramientas de gestión. Ofrecemos APIs personalizadas para integraciones específicas.",
     },
   ];
 
@@ -65,13 +65,13 @@ const FAQ = () => {
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
               Todo lo que Necesitas Saber sobre{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8]">
-                HolaIA
+                MediTeam
               </span>
             </h2>
 
             {/* Description */}
             <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-2xl">
-              Descubre cómo HolaIA puede transformar tu práctica médica,
+              Descubre cómo MediTeam puede transformar tu práctica médica,
               automatizando procesos clave y mejorando la eficiencia de tu
               clínica con respuestas precisas y personalizadas.
             </p>
@@ -79,7 +79,7 @@ const FAQ = () => {
             {/* CTA Button */}
             <div className="pt-4 lg:pt-8">
               <button className="inline-flex items-center space-x-3 sm:space-x-4 px-6 sm:px-10 py-3 sm:py-5 bg-white border-2 border-blue-600 text-blue-600 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg hover:bg-blue-50 transition-colors duration-200 group w-full sm:w-auto justify-center">
-                <span>Prueba HolaIA Ahora</span>
+                <span>Prueba MediTeam Ahora</span>
                 <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 rounded-full flex items-center justify-center group-hover:bg-blue-700 transition-colors duration-200">
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
