@@ -13,11 +13,11 @@ const Footer = () => {
             {/* Logo and Copyright */}
             <div className="flex items-center space-x-2">
               <Image
-                src="/logo.png"
+                src="/logoName.png"
                 alt="MediTeam Logo"
-                width={50}
-                height={50}
-                className="w-12 h-12"
+                width={200}
+                height={60}
+                className="h-16 w-auto"
               />
             </div>
 
