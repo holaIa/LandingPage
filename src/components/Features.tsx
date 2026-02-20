@@ -126,12 +126,10 @@ const Features = () => {
         {/* Section Header */}
         <motion.div {...animationConfig} className="section-header">
           <h2 className="section-title">
-            Trabajando con MediTeam
+            Tu consultorio en <span className="text-primary-500">Piloto Automático</span>
           </h2>
           <p className="section-subtitle">
-            Haz que tu próxima consulta sea la mejor. MediTeam te libera de la
-            administración para que puedas disfrutar del trabajo, tomar un
-            descanso y llegar a casa a tiempo.
+            MediTeam no solo almacena expedientes. MediTeam responde, agenda, da seguimiento y organiza la información por ti, permitiéndote recuperar horas de tu día.
           </p>
         </motion.div>
 
@@ -235,19 +233,27 @@ const Features = () => {
               key={feature.title}
               initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover="hover"
               transition={{
                 duration: isMobile ? 0 : 0.6,
                 delay: isMobile ? 0 : index * 0.1,
               }}
               viewport={{ once: true }}
-              className="card card-hover mobile-stable"
+              className="card card-hover mobile-stable group"
             >
-              <div
-                className={`icon-container ${getColorClasses(feature.color)}`}
+              <motion.div
+                variants={{
+                  hover: { 
+                    scale: 1.1, 
+                    rotate: [0, -10, 10, 0],
+                    transition: { duration: 0.5 }
+                  }
+                }}
+                className={`icon-container ${getColorClasses(feature.color)} transition-colors duration-300 group-hover:bg-white group-hover:shadow-md`}
               >
                 <feature.icon className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-semibold text-text-primary mb-4">
+              </motion.div>
+              <h3 className="text-xl font-semibold text-text-primary mb-4 transition-colors duration-300 group-hover:text-primary-600">
                 {feature.title}
               </h3>
               <p className="text-text-secondary leading-relaxed flex-grow">
@@ -264,11 +270,20 @@ const Features = () => {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl lg:text-3xl font-bold text-text-primary mb-8">
-                Beneficios Tangibles para tu Clínica
+              <h3 className="text-2xl lg:text-3xl font-bold text-text-primary mb-4">
+                Eficiencia que se paga sola
               </h3>
+              <p className="text-lg text-primary-700 font-semibold mb-8 italic">
+                “Con una sola cita extra al mes, MediTeam se paga solo.”
+              </p>
               <div className="space-y-6">
-                {benefits.map((benefit, index) => (
+                {[
+                  "Ahorro de hasta $8,000 MXN vs personal humano",
+                  "Reducción del 90% en carga administrativa",
+                  "Atención inmediata 24/7 sin errores",
+                  "Generación constante de nuevas citas",
+                  "Escalabilidad sin aumentar costos fijos",
+                ].map((benefit, index) => (
                   <motion.div
                     key={benefit}
                     initial={

@@ -6,55 +6,51 @@ import { Check, Star, Zap, Crown } from "lucide-react";
 const Pricing = () => {
   const plans = [
     {
-      name: "Básico",
-      description: "Perfecto para consultorios pequeños",
-      price: "$1,499",
-      period: "/mes",
+      name: "Individual",
+      description: "Ideal para médicos independientes",
+      price: "Paga lo que uses",
+      period: "",
       features: [
-        "Hasta 1,500 mensajes por mes",
-        "1 Agente IA (Dr. Asistente)",
-        "Gestión básica de citas",
-        "Integración WhatsApp",
-        "Soporte por email",
-        "Reportes básicos",
+        "Los 4 agentes de IA activados",
+        "WhatsApp Business dedicado",
+        "Sin renta mensual fija",
+        "Acceso a todas las funciones",
+        "Soporte estándar",
+        "Paga solo consumo real",
       ],
       popular: false,
       icon: Zap,
       color: "blue",
     },
     {
-      name: "Profesional",
-      description: "Ideal para clínicas medianas",
-      price: "$2,999",
-      period: "/mes",
+      name: "Consultorio",
+      description: "Para consultorios con alto volumen",
+      price: "Escalable",
+      period: "",
       features: [
-        "Hasta 5,000 mensajes por mes",
-        "3 Agentes IA especializados",
-        "Gestión avanzada de citas",
-        "Expedientes médicos digitales",
-        "Dominio personalizado",
+        "Los 4 agentes de IA activados",
+        "WhatsApp Business dedicado",
+        "Analítica de rendimiento",
         "Soporte prioritario",
-        "Analytics completos",
-        "Recordatorios automáticos",
+        "Reportes mensuales de ahorro",
+        "Mejores tasas por volumen",
       ],
       popular: true,
       icon: Star,
       color: "purple",
     },
     {
-      name: "Enterprise",
-      description: "Para hospitales y grandes clínicas",
-      price: "$6,999",
-      period: "/mes",
+      name: "Clínicas / Grupos",
+      description: "Soluciones para múltiples doctores",
+      price: "Personalizado",
+      period: "",
       features: [
-        "Hasta 10,000 mensajes por mes",
-        "Todos los agentes IA",
-        "Personalización completa",
-        "API personalizada",
-        "Soporte 24/7 dedicado",
-        "Dominio personalizado",
-        "Implementación personalizada",
-        "Capacitación del equipo",
+        "Múltiples números de WhatsApp",
+        "Dashboard administrativo",
+        "Integración con EHR/HIS",
+        "Account Manager dedicado",
+        "Capacitación de personal",
+        "SLA garantizado",
       ],
       popular: false,
       icon: Crown,
@@ -83,22 +79,19 @@ const Pricing = () => {
           className="section-header"
         >
           <h2 className="section-title">
-            Planes Adaptados a tu
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8]">
-              {" "}
-              Práctica Médica
-            </span>
+            Precios <span className="text-primary-500">Transparentes</span>
           </h2>
           <p className="section-subtitle">
-            Elige el plan que mejor se adapte a las necesidades de tu clínica.
-            Todos incluyen soporte técnico especializado y actualizaciones
-            gratuitas. El costo por implementación es de $9,900 para todos los
-            paquetes.
+            Sin funciones bloqueadas. Sin contratos forzosos. Sin sorpresas.
+            Tus 4 agentes de IA están listos para trabajar desde el primer día.
           </p>
+          <div className="mt-6 inline-flex items-center px-6 py-3 rounded-full bg-primary-50 text-primary-700 font-semibold border border-primary-100">
+            Costo de implementación único: $9,900 MXN
+          </div>
         </motion.div>
 
-        {/* Pricing Cards - Top Row */}
-        <div className="pricing-grid mb-20">
+        {/* Pricing Cards */}
+        <div className="pricing-grid mb-20 items-stretch">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -106,21 +99,21 @@ const Pricing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`relative bg-white rounded-3xl p-12 shadow-xl hover:shadow-2xl transition-all duration-300 ${
-                plan.popular ? "ring-4 ring-purple-500 scale-105" : ""
+              className={`relative bg-white rounded-3xl p-8 sm:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center h-full ${
+                plan.popular ? "ring-4 ring-primary-500 scale-105 z-10" : "opacity-90 hover:opacity-100"
               }`}
             >
               {/* Popular Badge */}
               {plan.popular && (
                 <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-xl">
-                    Más Popular
+                  <span className="bg-primary-600 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl">
+                    Sugerido
                   </span>
                 </div>
               )}
 
               {/* Plan Header */}
-              <div className="text-center mb-12">
+              <div className="mb-8 w-full">
                 <div
                   className={`icon-container large ${getColorClasses(
                     plan.color
@@ -131,121 +124,95 @@ const Pricing = () => {
                 <h3 className="text-3xl font-bold text-gray-900 mb-4">
                   {plan.name}
                 </h3>
-                <p className="text-gray-600 text-xl">{plan.description}</p>
+                <p className="text-gray-600 text-lg">{plan.description}</p>
               </div>
 
               {/* Price */}
-              <div className="text-center mb-12">
+              <div className="mb-10 w-full">
                 <div className="flex items-baseline justify-center">
-                  <span className="text-6xl font-bold text-gray-900">
+                  <span className="text-4xl sm:text-5xl font-extrabold text-gray-900">
                     {plan.price}
                   </span>
-                  <span className="text-gray-600 ml-3 text-2xl">
-                    {plan.period}
-                  </span>
                 </div>
+                <p className="mt-4 text-text-secondary italic">
+                  Solo pagas por mensajes de WhatsApp y uso de IA
+                </p>
               </div>
 
               {/* Features */}
-              <div className="space-y-6 mb-12">
+              <div className="space-y-5 mb-12 flex-grow text-left w-full">
                 {plan.features.map((feature, featureIndex) => (
                   <div
                     key={featureIndex}
                     className="flex items-center space-x-4"
                   >
                     <div className="flex-shrink-0">
-                      <Check className="w-6 h-6 text-green-600" />
+                      <Check className="w-6 h-6 text-success" />
                     </div>
-                    <span className="text-gray-700 text-lg">{feature}</span>
+                    <span className="text-gray-700 text-lg leading-tight">{feature}</span>
                   </div>
                 ))}
               </div>
 
               {/* CTA Button */}
-              <button
-                className={`w-full py-5 px-8 rounded-2xl font-semibold transition-all duration-300 text-xl ${
+              <a
+                href={`https://wa.me/523315128570?text=Hola,%20me%20interesa%20activar%20mi%20equipo%20de%20IA%20con%20el%20plan%20${plan.name}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-full py-5 px-8 rounded-2xl font-bold transition-all duration-300 text-xl text-center ${
                   plan.popular
-                    ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 transform hover:scale-105 shadow-xl"
+                    ? "bg-primary-600 text-white hover:bg-primary-700 transform hover:scale-105 shadow-xl"
                     : "bg-gray-100 text-gray-900 hover:bg-gray-200"
                 }`}
               >
-                {plan.popular ? "Comenzar Ahora" : "Seleccionar Plan"}
-              </button>
+                {plan.popular ? "Activar ahora" : "Elegir plan"}
+              </a>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom Section - Two Columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Left Column - Custom Plan Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-12 lg:p-16"
-          >
-            <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-10">
-              ¿Necesitas algo personalizado?
+        {/* Pricing Concept Section */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="bg-primary-50 rounded-4xl p-10 lg:p-16 border border-primary-100 text-center"
+        >
+          <div className="max-w-3xl mx-auto">
+            <h3 className="text-3xl font-bold text-text-primary mb-6">
+              ¿Por qué pagar solo por lo que usas?
             </h3>
-            <p className="text-gray-600 text-xl mb-12 leading-relaxed">
-              Si tu clínica tiene necesidades específicas, podemos crear un plan
-              personalizado que se adapte perfectamente a tus requerimientos.
+            <p className="text-xl text-text-secondary leading-relaxed mb-10">
+              A diferencia de otros CRMs que te cobran por funciones que no ocupas, en MediTeam creemos en la transparencia.
             </p>
-            <div className="space-y-8">
-              <div className="flex items-center space-x-6">
-                <Check className="w-8 h-8 text-green-600" />
-                <span className="text-gray-700 text-xl">
-                  Implementación personalizada
-                </span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+              <div className="flex items-start space-x-4">
+                <div className="p-3 bg-white rounded-xl shadow-sm">
+                  <span className="text-2xl">📱</span>
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg mb-1">WhatsApp Profesional</h4>
+                  <p className="text-text-secondary">Paga solo por los mensajes enviados y recibidos por tus agentes.</p>
+                </div>
               </div>
-              <div className="flex items-center space-x-6">
-                <Check className="w-8 h-8 text-green-600" />
-                <span className="text-gray-700 text-xl">
-                  Integración con sistemas existentes
-                </span>
-              </div>
-              <div className="flex items-center space-x-6">
-                <Check className="w-8 h-8 text-green-600" />
-                <span className="text-gray-700 text-xl">
-                  Capacitación del equipo
-                </span>
-              </div>
-              <div className="flex items-center space-x-6">
-                <Check className="w-8 h-8 text-green-600" />
-                <span className="text-gray-700 text-xl">
-                  Soporte técnico dedicado
-                </span>
+              <div className="flex items-start space-x-4">
+                <div className="p-3 bg-white rounded-xl shadow-sm">
+                  <span className="text-2xl">🤖</span>
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg mb-1">Inteligencia Artificial</h4>
+                  <p className="text-text-secondary">El costo escala con el volumen de interacciones y tareas ejecutadas.</p>
+                </div>
               </div>
             </div>
-          </motion.div>
-
-          {/* Right Column - Custom Plan CTA */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="flex items-center justify-center"
-          >
-            <div className="bg-white rounded-3xl p-12 shadow-xl text-center w-full max-w-lg">
-              <h4 className="text-3xl font-bold text-gray-900 mb-6">
-                Plan Personalizado
-              </h4>
-              <p className="text-gray-600 mb-12 text-xl leading-relaxed">
-                Contáctanos para discutir tus necesidades específicas
+            <div className="mt-12 pt-8 border-t border-primary-200">
+              <p className="text-primary-800 font-bold text-lg">
+                "Con MediTeam, tu inversión siempre es proporcional al crecimiento de tu consultorio."
               </p>
-              <a
-                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20cotización%20personalizada%20para%20mi%20clínica.%20¿Podrían%20contactarme%20para%20discutir%20mis%20necesidades%20específicas?"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary w-full text-xl py-6 flex items-center justify-center"
-              >
-                Solicitar Cotización
-              </a>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

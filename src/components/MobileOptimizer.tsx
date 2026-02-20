@@ -20,18 +20,8 @@ const MobileOptimizer = ({ children }: MobileOptimizerProps) => {
       document.documentElement.classList.add("prefers-reduced-motion");
     }
 
-    // Prevenir zoom en dispositivos móviles
-    const preventZoom = (e: TouchEvent) => {
-      if (e.touches.length > 1) {
-        e.preventDefault();
-      }
-    };
-
-    document.addEventListener("touchstart", preventZoom, { passive: false });
-
     // Limpiar al desmontar
     return () => {
-      document.removeEventListener("touchstart", preventZoom);
       document.documentElement.classList.remove("prefers-reduced-motion");
     };
   }, []);

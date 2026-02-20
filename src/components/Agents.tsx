@@ -129,42 +129,102 @@ const Agents = () => {
         <motion.div {...animationConfig} className="section-header">
           <h2 className="section-title">
             Tu Equipo de
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8]">
-              {" "}
-              Agentes IA
-            </span>
+            <span className="text-primary-500"> 4 Agentes de IA</span>
           </h2>
           <p className="section-subtitle">
-            Agentes especializados que trabajan 24/7 para optimizar cada aspecto
-            de tu práctica médica, desde la programación de citas hasta el
-            seguimiento post-consulta.
+            MediTeam no es un chatbot aislado. Es un equipo coordinado de agentes especializados que trabajan juntos para que tu consultorio nunca se detenga.
           </p>
         </motion.div>
 
         {/* Agents Grid */}
         <div className="agents-grid">
-          {agents.map((agent, index) => (
+          {[
+            {
+              name: "Agente de Atención al Paciente",
+              role: "WhatsApp 24/7",
+              description:
+                "Tu primera línea de contacto. Responde dudas, da horarios y servicios de forma instantánea.",
+              features: [
+                "Responde mensajes por WhatsApp",
+                "Atiende dudas frecuentes",
+                "Info de horarios, ubicación y servicios",
+                "Funciona 24/7 sin descanso",
+              ],
+              icon: MessageCircle,
+              color: "blue",
+            },
+            {
+              name: "Agente de Agenda y Citas",
+              role: "Gestión de Calendario",
+              description:
+                "Se encarga de llenar tu agenda y asegurar que los pacientes lleguen a su consulta.",
+              features: [
+                "Agenda, confirma y reprograma",
+                "Reduce cancelaciones y no-shows",
+                "Coordina tu disponibilidad",
+                "Automatiza recordatorios",
+              ],
+              icon: Calendar,
+              color: "green",
+            },
+            {
+              name: "Agente Clínico / de Expediente",
+              role: "Organización Médica",
+              description:
+                "Mantiene tu información clínica organizada y lista para la siguiente consulta.",
+              features: [
+                "Organiza el historial del paciente",
+                "Resume info clínica automáticamente",
+                "Apoyo en notas post-consulta",
+                "Centraliza la información médica",
+              ],
+              icon: FileText,
+              color: "indigo",
+            },
+            {
+              name: "Agente de Seguimiento y Relación",
+              role: "Fidelización",
+              description:
+                "Mantiene el contacto con el paciente después de la consulta para mejorar la adherencia.",
+              features: [
+                "Seguimiento post-consulta",
+                "Envía recordatorios y recomendaciones",
+                "Mantiene el contacto constante",
+                "Mejora adherencia y recurrencia",
+              ],
+              icon: UserCheck,
+              color: "purple",
+            },
+          ].map((agent, index) => (
             <motion.div
               key={agent.name}
               initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover="hover"
               transition={{
                 duration: isMobile ? 0 : 0.6,
                 delay: isMobile ? 0 : index * 0.1,
               }}
               viewport={{ once: true }}
-              className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 mobile-stable"
+              className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 mobile-stable group"
             >
               {/* Agent Header */}
               <div className="flex items-start justify-between mb-6 sm:mb-8">
                 <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div
+                  <motion.div
+                    variants={{
+                      hover: { 
+                        scale: 1.1, 
+                        rotate: [0, -10, 10, 0],
+                        transition: { duration: 0.5 }
+                      }
+                    }}
                     className={`icon-container large ${getColorClasses(
                       agent.color
-                    )}`}
+                    )} transition-colors duration-300 group-hover:bg-white group-hover:shadow-md`}
                   >
                     <agent.icon className="w-6 h-6 sm:w-8 sm:h-8" />
-                  </div>
+                  </motion.div>
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
                       {agent.name}

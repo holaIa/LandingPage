@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Comparison from "@/components/Comparison";
 import Features from "@/components/Features";
 import Platform from "@/components/Platform";
 import PlatformShowcase from "@/components/PlatformShowcase";
@@ -16,6 +17,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Features />
+      <Comparison />
       {/* <Platform /> */}
       <PlatformShowcase />
       {/* <PlatformScreenshots /> */}

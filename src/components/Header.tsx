@@ -88,12 +88,12 @@ const Header = () => {
               Iniciar Sesión
             </a>
             <a
-              href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratis%20de%20MediTeam"
+              href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20activar%20mis%204%20agentes%20de%20IA%20de%20MediTeam"
               target="_blank"
               rel="noopener noreferrer"
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-primary-500 text-white hover:bg-primary-600`}
+              className={`px-4 py-2 rounded-lg font-bold transition-all duration-300 bg-primary-500 text-white hover:bg-primary-600`}
             >
-              Solicitar Demo
+              Activar mis agentes
             </a>
           </div>
 

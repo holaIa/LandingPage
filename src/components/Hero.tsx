@@ -85,22 +85,20 @@ const Hero = () => {
               IA Médica de Nueva Generación
             </motion.div>
 
-            {/* Main Heading - estilo Heidi Health */}
+            {/* Main Heading - Nuevo posicionamiento */}
             <motion.h1
               {...titleAnimation}
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-text-primary leading-tight"
             >
-              Haz que tu próxima{" "}
-              <span className="text-primary-500">consulta</span> sea la mejor.
+              4 agentes de <span className="text-primary-500">IA trabajando</span> para tu consultorio 24/7.
             </motion.h1>
 
-            {/* Subtitle - más conciso */}
+            {/* Subtitle - Enfocado en valor */}
             <motion.p
               {...subtitleAnimation}
               className="text-lg sm:text-xl lg:text-2xl text-text-secondary max-w-2xl leading-relaxed"
             >
-              MediTeam te libera de la administración para que puedas disfrutar
-              del trabajo, tomar un descanso y llegar a casa a tiempo.
+              MediTeam te entrega un equipo digital completo que responde, agenda y organiza todo, para que tú solo te encargues de tus pacientes.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -109,12 +107,12 @@ const Hero = () => {
               className="flex flex-col sm:flex-row gap-4 justify-start items-center"
             >
               <a
-                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratis%20de%20MediTeam"
+                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20activar%20mis%204%20agentes%20de%20IA%20de%20MediTeam"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary text-base sm:text-lg px-8 py-4 w-full sm:w-auto text-center"
+                className="btn-primary text-base sm:text-lg px-8 py-4 w-full sm:w-auto text-center font-bold"
               >
-                <span>Prueba MediTeam gratis</span>
+                <span>Activa tus 4 agentes de IA</span>
                 <ArrowRight className="w-5 h-5" />
               </a>
             </motion.div>
