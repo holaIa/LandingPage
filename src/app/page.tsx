@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Comparison from "@/components/Comparison";
 import Features from "@/components/Features";
+import ClinicalSummaryFeature from "@/components/ClinicalSummaryFeature";
 import Platform from "@/components/Platform";
 import PlatformShowcase from "@/components/PlatformShowcase";
 import PlatformScreenshots from "@/components/PlatformScreenshots";
@@ -17,6 +18,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Features />
+      <ClinicalSummaryFeature />
       <Comparison />
       {/* <Platform /> */}
       <PlatformShowcase />

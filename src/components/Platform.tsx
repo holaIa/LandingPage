@@ -61,7 +61,7 @@ const Platform = () => {
 
   const getColorClasses = (color: string) => {
     const colors = {
-      blue: "bg-blue-100 text-blue-600",
+      blue: "bg-primary-100 text-primary-600",
       green: "bg-green-100 text-green-600",
       purple: "bg-purple-100 text-purple-600",
     };
@@ -84,7 +84,7 @@ const Platform = () => {
         >
           <h2 className="section-title">
             Descubre Nuestra
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-primary-700">
               {" "}
               Plataforma Completa
             </span>
@@ -194,7 +194,7 @@ const Platform = () => {
                       </p>
                     </div>
                     <div className="text-right">
-                      <div className="text-2xl font-bold text-blue-600">8</div>
+                      <div className="text-2xl font-bold text-primary-600">8</div>
                       <div className="text-sm text-gray-600">
                         Pacientes registrados
                       </div>
@@ -209,7 +209,7 @@ const Platform = () => {
                         Buscar por nombre, email o teléfono...
                       </span>
                     </div>
-                    <button className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium">
+                    <button className="bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-medium">
                       + Nuevo Paciente
                     </button>
                   </div>
@@ -241,8 +241,8 @@ const Platform = () => {
                         className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
                       >
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                            <Users className="w-4 h-4 text-blue-600" />
+                          <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
+                            <Users className="w-4 h-4 text-primary-600" />
                           </div>
                           <div>
                             <div className="font-medium text-gray-900">
@@ -317,8 +317,8 @@ const Platform = () => {
 
                       <div className="bg-gray-50 rounded-lg p-3">
                         <div className="flex items-center gap-2 mb-2">
-                          <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                            <MessageCircle className="w-4 h-4 text-blue-600" />
+                          <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
+                            <MessageCircle className="w-4 h-4 text-primary-600" />
                           </div>
                           <div className="flex-1">
                             <div className="font-medium text-sm">
@@ -336,7 +336,7 @@ const Platform = () => {
 
                     {/* Chat Messages */}
                     <div className="col-span-2 space-y-3">
-                      <div className="bg-blue-100 rounded-lg p-3 ml-8">
+                      <div className="bg-primary-100 rounded-lg p-3 ml-8">
                         <p className="text-sm text-gray-900">
                           Hola doctor, ¿cuáles son los horarios de atención?
                         </p>
@@ -351,7 +351,7 @@ const Platform = () => {
                         <span className="text-xs text-gray-500">07:25</span>
                       </div>
 
-                      <div className="bg-blue-100 rounded-lg p-3 ml-8">
+                      <div className="bg-primary-100 rounded-lg p-3 ml-8">
                         <p className="text-sm text-gray-900">
                           Sí, me gustaría agendar para mañana a las 10:00 AM
                         </p>
@@ -364,7 +364,7 @@ const Platform = () => {
                           placeholder="Escribe un mensaje..."
                           className="flex-1 bg-gray-50 rounded-lg px-3 py-2 text-sm border border-gray-200"
                         />
-                        <button className="bg-blue-600 text-white p-2 rounded-lg">
+                        <button className="bg-primary-600 text-white p-2 rounded-lg">
                           <MessageCircle className="w-4 h-4" />
                         </button>
                       </div>
@@ -396,11 +396,11 @@ const Platform = () => {
               href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratuita%20de%20MediTeam"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              className="bg-primary-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors"
             >
               Solicitar Demo Gratuita
             </a>
-            <button className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors">
+            <button className="border border-primary-600 text-primary-600 px-8 py-3 rounded-lg font-medium hover:bg-primary-50 transition-colors">
               Ver Más Características
             </button>
           </div>

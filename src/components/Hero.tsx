@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   MessageCircle,
   Calendar,
@@ -79,9 +80,9 @@ const Hero = () => {
             {/* Badge */}
             <motion.div
               {...animationConfig}
-              className="inline-flex items-center px-4 py-2 rounded-full bg-primary-50 text-primary-600 text-sm font-semibold border border-primary-100"
+              className="inline-flex items-center px-4 py-2 rounded-full bg-primary-50 text-primary-600 text-sm font-semibold border border-primary-100 shadow-sm"
             >
-              <MessageCircle className="w-4 h-4 mr-2" />
+              <img src="/images/3d-emojis/community_3d.png" alt="AI Chat" className="w-5 h-5 mr-2 drop-shadow-sm" />
               IA Médica de Nueva Generación
             </motion.div>
 
@@ -141,24 +142,28 @@ const Hero = () => {
           <motion.div {...imageAnimation} className="relative mt-8 lg:mt-0">
             {/* Medical Image */}
             <div className="relative rounded-2xl overflow-hidden shadow-xl">
-              <img
+              <Image
                 src="/medica_nene.jpeg"
                 alt="Doctora profesional examinando a un niño en una consulta médica"
                 className="w-full h-auto object-cover mobile-stable"
+                width={800}
+                height={600}
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
                 style={{ minHeight: "400px" }}
-                loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
             </div>
 
             {/* Floating Stats Card - más sutil */}
-            <div className="absolute -bottom-6 -left-6 bg-background-paper rounded-xl p-4 shadow-lg border border-background-subtle mobile-stable hidden sm:block">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center">
-                  <Users className="w-5 h-5 text-primary-500" />
+            <div className="absolute -bottom-6 -left-6 bg-white rounded-3xl p-5 shadow-[0_4px_20px_rgba(59,130,246,0.12)] border border-primary-100 mobile-stable hidden sm:block">
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-blue-50/80 border border-blue-100 rounded-xl flex items-center justify-center shadow-sm">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/images/3d-emojis/paciente_3d.png" alt="Pacientes" className="w-8 h-8 object-contain drop-shadow-md scale-[1.7] transform" />
                 </div>
                 <div>
-                  <p className="text-xs text-text-muted font-medium">
+                  <p className="text-xs text-text-muted font-medium uppercase tracking-wider">
                     Pacientes atendidos
                   </p>
                   <p className="text-lg font-bold text-text-primary">

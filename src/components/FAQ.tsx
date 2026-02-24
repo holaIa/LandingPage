@@ -57,14 +57,14 @@ const FAQ = () => {
             className="space-y-8 lg:space-y-16 order-2 lg:order-1"
           >
             {/* Badge */}
-            <div className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-blue-600 text-white rounded-full text-sm sm:text-base font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-primary-600 text-white rounded-full text-sm sm:text-base font-bold uppercase tracking-wider">
               FAQs
             </div>
 
             {/* Main Heading */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
               Todo lo que Necesitas Saber sobre{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-primary-700">
                 MediTeam
               </span>
             </h2>
@@ -78,9 +78,9 @@ const FAQ = () => {
 
             {/* CTA Button */}
             <div className="pt-4 lg:pt-8">
-              <button className="inline-flex items-center space-x-3 sm:space-x-4 px-6 sm:px-10 py-3 sm:py-5 bg-white border-2 border-blue-600 text-blue-600 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg hover:bg-blue-50 transition-colors duration-200 group w-full sm:w-auto justify-center">
+              <button className="inline-flex items-center space-x-3 sm:space-x-4 px-6 sm:px-10 py-3 sm:py-5 bg-white border-2 border-primary-600 text-primary-600 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg hover:bg-primary-50 transition-colors duration-200 group w-full sm:w-auto justify-center">
                 <span>Prueba MediTeam Ahora</span>
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 rounded-full flex items-center justify-center group-hover:bg-blue-700 transition-colors duration-200">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary-600 rounded-full flex items-center justify-center group-hover:bg-primary-700 transition-colors duration-200">
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
               </button>

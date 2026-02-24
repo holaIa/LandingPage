@@ -96,12 +96,23 @@ const PlatformShowcase = () => {
     viewport: { once: true },
   };
 
+  // Helper to get 3D color backgrounds similar to Features.tsx
+  const get3DColorClasses = (color: string) => {
+    const colors = {
+      blue: "bg-blue-50 border border-blue-100",
+      purple: "bg-purple-50 border border-purple-100",
+      orange: "bg-orange-50 border border-orange-100",
+    };
+    return colors[color as keyof typeof colors] || colors.blue;
+  };
+
   const showcaseItems = [
     {
       title: "Dashboard de Métricas",
       description:
         "Visualiza el rendimiento de tu clínica con métricas en tiempo real",
-      icon: BarChart3,
+      iconUrl: "/images/3d-emojis/bar_chart_3d.png",
+      color: "orange",
       image: "/dashboard-metrics.png", // Placeholder - puedes reemplazar con la imagen real
       videoUrl: "/metricasHolaia.mov",
       features: [
@@ -115,7 +126,8 @@ const PlatformShowcase = () => {
       title: "Chat en Tiempo Real",
       description:
         "Comunícate con pacientes a través de WhatsApp y chat web integrado",
-      icon: MessageCircle,
+      iconUrl: "/images/3d-emojis/speech_balloon_3d.png",
+      color: "blue",
       image: "/chat-interface.png", // Placeholder - puedes reemplazar con la imagen real
       videoUrl: "/chats.mov", // Corregido el nombre del archivo
       features: [
@@ -128,7 +140,8 @@ const PlatformShowcase = () => {
     {
       title: "Gestión de Pacientes",
       description: "Administra expedientes médicos completos de forma digital",
-      icon: Users,
+      iconUrl: "/images/3d-emojis/paciente_3d.png",
+      color: "purple",
       image: "/patient-management.png", // Placeholder - puedes reemplazar con la imagen real
       videoUrl: "/historial.mov",
       features: [
@@ -153,7 +166,7 @@ const PlatformShowcase = () => {
         >
           <h2 className="section-title">
             Conoce Nuestra
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-primary-700">
               {" "}
               Plataforma en Acción
             </span>
@@ -183,11 +196,12 @@ const PlatformShowcase = () => {
             >
               {/* Content */}
               <div className="flex-1 space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="p-3 bg-blue-100 rounded-xl">
-                    <item.icon className="w-6 h-6 text-blue-600" />
+                <div className="flex items-center gap-4">
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transform-gpu shadow-sm ${get3DColorClasses(item.color)}`}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={item.iconUrl} alt={item.title} className={`w-10 h-10 object-contain drop-shadow-md ${item.iconUrl.includes("paciente_3d.png") ? "scale-[1.7] transform" : ""}`} />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">
+                  <h3 className="text-3xl font-bold text-gray-900 leading-tight">
                     {item.title}
                   </h3>
                 </div>
@@ -199,7 +213,7 @@ const PlatformShowcase = () => {
                 <ul className="space-y-3">
                   {item.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
                       <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
@@ -210,7 +224,7 @@ const PlatformShowcase = () => {
                     href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20ver%20una%20demo%20de%20MediTeam"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                    className="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors"
                   >
                     Ver Demo
                     <ArrowRight className="w-4 h-4" />
@@ -248,7 +262,7 @@ const PlatformShowcase = () => {
                   {!isMobile && (
                     <div className="absolute inset-0 bg-black bg-opacity-10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                       <div className="bg-white bg-opacity-90 p-4 rounded-full">
-                        <Play className="w-8 h-8 text-blue-600 ml-1" />
+                        <Play className="w-8 h-8 text-primary-600 ml-1" />
                       </div>
                     </div>
                   )}
@@ -264,7 +278,7 @@ const PlatformShowcase = () => {
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <button className="bg-white bg-opacity-90 p-4 rounded-full hover:bg-opacity-100 transition-all duration-300">
-                      <Play className="w-8 h-8 text-blue-600 ml-1" />
+                      <Play className="w-8 h-8 text-primary-600 ml-1" />
                     </button>
                   </div>
                 </div>
@@ -276,7 +290,7 @@ const PlatformShowcase = () => {
 
         {/* Video Modal Placeholder */}
         <motion.div {...animationConfig} className="mt-20 text-center">
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-12">
+          <div className="bg-gradient-to-r from-primary-50 to-primary-50 rounded-2xl p-12">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               ¿Quieres Ver Más?
             </h3>
@@ -289,11 +303,11 @@ const PlatformShowcase = () => {
                 href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20personalizada%20de%20MediTeam"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                className="bg-primary-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors"
               >
                 Solicitar Demo Personalizada
               </a>
-              {/* <button className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors">
+              {/* <button className="border border-primary-600 text-primary-600 px-8 py-3 rounded-lg font-medium hover:bg-primary-50 transition-colors">
                 Ver Casos de Éxito
               </button> */}
             </div>

@@ -19,7 +19,7 @@ const Pricing = () => {
         "Paga solo consumo real",
       ],
       popular: false,
-      icon: Zap,
+      iconUrl: "/images/3d-emojis/high_voltage_3d.png",
       color: "blue",
     },
     {
@@ -36,7 +36,7 @@ const Pricing = () => {
         "Mejores tasas por volumen",
       ],
       popular: true,
-      icon: Star,
+      iconUrl: "/images/3d-emojis/star_3d.png",
       color: "purple",
     },
     {
@@ -53,16 +53,16 @@ const Pricing = () => {
         "SLA garantizado",
       ],
       popular: false,
-      icon: Crown,
+      iconUrl: "/images/3d-emojis/crown_3d.png",
       color: "gold",
     },
   ];
 
-  const getColorClasses = (color: string) => {
+  const get3DColorClasses = (color: string) => {
     const colors = {
-      blue: "bg-blue-100 text-blue-600",
-      purple: "bg-purple-100 text-purple-600",
-      gold: "bg-yellow-100 text-yellow-600",
+      blue: "bg-blue-50/80 border border-blue-100",
+      purple: "bg-purple-50/80 border border-purple-100",
+      gold: "bg-yellow-50/80 border border-yellow-100",
     };
     return colors[color as keyof typeof colors] || colors.blue;
   };
@@ -113,13 +113,14 @@ const Pricing = () => {
               )}
 
               {/* Plan Header */}
-              <div className="mb-8 w-full">
+              <div className="mb-8 w-full flex flex-col items-center">
                 <div
-                  className={`icon-container large ${getColorClasses(
+                  className={`w-24 h-24 rounded-[1.75rem] flex items-center justify-center shadow-sm border border-white/50 mb-8 transform-gpu transition-transform hover:scale-110 duration-300 ${get3DColorClasses(
                     plan.color
-                  )} mx-auto mb-8`}
+                  )}`}
                 >
-                  <plan.icon className="w-10 h-10" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={plan.iconUrl} alt={plan.name} className="w-14 h-14 object-contain drop-shadow-md" />
                 </div>
                 <h3 className="text-3xl font-bold text-gray-900 mb-4">
                   {plan.name}

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   MessageCircle,
   Calendar,
@@ -53,42 +54,42 @@ const Features = () => {
 
   const features = [
     {
-      icon: MessageCircle,
+      iconUrl: "/images/3d-emojis/robot_3d.png",
       title: "Gestión de WhatsApp Automatizada",
       description:
         "Agentes de IA que manejan citas, recordatorios y consultas básicas 24/7 a través de WhatsApp.",
       color: "blue",
     },
     {
-      icon: Calendar,
+      iconUrl: "/images/3d-emojis/spiral_calendar_3d.png",
       title: "Sistema de Citas Inteligente",
       description:
         "Programación automática de citas con confirmación, recordatorios y reprogramación inteligente.",
       color: "green",
     },
     {
-      icon: Users,
+      iconUrl: "/images/3d-emojis/paciente_3d.png",
       title: "Gestión Completa de Pacientes",
       description:
         "Historial médico, datos personales, tratamientos y seguimiento en una sola plataforma.",
       color: "purple",
     },
     {
-      icon: FileText,
+      iconUrl: "/images/3d-emojis/file_folder_3d.png",
       title: "Expedientes Médicos Digitales",
       description:
         "Almacenamiento seguro de historiales clínicos, recetas y resultados de laboratorio.",
       color: "indigo",
     },
     {
-      icon: Shield,
+      iconUrl: "/images/3d-emojis/shield_3d.png",
       title: "Seguridad y Cumplimiento HIPAA",
       description:
         "Cumplimiento total con regulaciones médicas y protección de datos del paciente.",
       color: "red",
     },
     {
-      icon: BarChart3,
+      iconUrl: "/images/3d-emojis/bar_chart_3d.png",
       title: "Analytics y Reportes",
       description:
         "Métricas detalladas sobre rendimiento, ocupación y satisfacción del paciente.",
@@ -105,14 +106,14 @@ const Features = () => {
     "Soporte técnico especializado en el sector salud",
   ];
 
-  const getColorClasses = (color: string) => {
+  const get3DColorClasses = (color: string) => {
     const colors = {
-      blue: "bg-blue-100 text-blue-600",
-      green: "bg-green-100 text-green-600",
-      purple: "bg-purple-100 text-purple-600",
-      indigo: "bg-indigo-100 text-indigo-600",
-      red: "bg-red-100 text-red-600",
-      orange: "bg-orange-100 text-orange-600",
+      blue: "bg-blue-50/80 border border-blue-100",
+      green: "bg-emerald-50/80 border border-emerald-100",
+      purple: "bg-purple-50/80 border border-purple-100",
+      indigo: "bg-indigo-50/80 border border-indigo-100",
+      red: "bg-rose-50/80 border border-rose-100",
+      orange: "bg-orange-50/80 border border-orange-100",
     };
     return colors[color as keyof typeof colors] || colors.blue;
   };
@@ -227,7 +228,7 @@ const Features = () => {
         </div>
 
         {/* Features Grid */}
-        <div className="features-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -239,24 +240,25 @@ const Features = () => {
                 delay: isMobile ? 0 : index * 0.1,
               }}
               viewport={{ once: true }}
-              className="card card-hover mobile-stable group"
+              className="bg-white rounded-[2.5rem] p-8 border border-primary-100 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)] transition-all duration-300 flex flex-col group"
             >
               <motion.div
                 variants={{
                   hover: { 
-                    scale: 1.1, 
-                    rotate: [0, -10, 10, 0],
+                    scale: 1.05, 
+                    rotate: [0, -5, 5, 0],
                     transition: { duration: 0.5 }
                   }
                 }}
-                className={`icon-container ${getColorClasses(feature.color)} transition-colors duration-300 group-hover:bg-white group-hover:shadow-md`}
+                className={`w-20 h-20 rounded-[1.5rem] flex items-center justify-center transition-all duration-300 transform-gpu mb-6 ${get3DColorClasses(feature.color)} shadow-sm border border-white/50`}
               >
-                <feature.icon className="w-6 h-6" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={feature.iconUrl} alt={feature.title} className={`w-12 h-12 object-contain drop-shadow-md ${feature.iconUrl.includes("paciente_3d.png") ? "scale-[1.7] transform" : ""}`} />
               </motion.div>
-              <h3 className="text-xl font-semibold text-text-primary mb-4 transition-colors duration-300 group-hover:text-primary-600">
+              <h3 className="text-2xl font-bold text-primary-600 mb-4 leading-snug">
                 {feature.title}
               </h3>
-              <p className="text-text-secondary leading-relaxed flex-grow">
+              <p className="text-gray-500 text-lg leading-relaxed font-medium flex-grow">
                 {feature.description}
               </p>
             </motion.div>
@@ -308,11 +310,13 @@ const Features = () => {
             <div className="relative">
               {/* Medical Image */}
               <div className="relative rounded-2xl overflow-hidden shadow-lg mb-6">
-                <img
+                <Image
                   src="/doctortable.jpeg"
-                  alt="Doctora profesional examinando a un niño en una consulta médica"
+                  alt="Doctor profesional en su consultorio revisando expedientes médicos"
                   className="w-full h-48 object-cover mobile-stable"
-                  loading="lazy"
+                  width={600}
+                  height={192}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">

@@ -31,35 +31,35 @@ const Comparison = () => {
       crm: "No (Solo almacena)",
       human: "Sí (Variable)",
       mediteam: "Sí (Automatizada)",
-      icon: <Sparkles className="w-5 h-5" />,
+      iconUrl: "/images/3d-emojis/sparkles_3d.png",
     },
     {
       feature: "Disponibilidad",
       crm: "24/7 (Pasiva)",
       human: "8-10 horas/día",
       mediteam: "24/7 (Activa)",
-      icon: <Bot className="w-5 h-5" />,
+      iconUrl: "/images/3d-emojis/robot_3d.png",
     },
     {
       feature: "Tiempo de Respuesta",
       crm: "N/A",
       human: "Minutos a Horas",
       mediteam: "Instantáneo",
-      icon: <Users className="w-5 h-5" />,
+      iconUrl: "/images/3d-emojis/alarm_clock_3d.png",
     },
     {
       feature: "Costo Mensual",
       crm: "$500 - $600 MXN",
       human: "$6,000 - $10,000 MXN",
       mediteam: "Basado en consumo",
-      icon: <Database className="w-5 h-5" />,
+      iconUrl: "/images/3d-emojis/coin_3d.png",
     },
     {
       feature: "Escalabilidad",
       crm: "Alta",
       human: "Limitada",
       mediteam: "Ilimitada",
-      icon: <Sparkles className="w-5 h-5" />,
+      iconUrl: "/images/3d-emojis/rocket_3d.png",
     },
   ];
 
@@ -121,8 +121,11 @@ const Comparison = () => {
                 {comparisons.map((item, index) => (
                   <tr key={index} className="group">
                     <td className="p-6 text-base font-bold text-text-primary pl-10 border-b border-gray-100/30">
-                      <div className="flex items-center gap-3">
-                        <div className="text-primary-400 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">{item.icon}</div>
+                      <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={item.iconUrl} alt={item.feature} className="w-6 h-6 object-contain drop-shadow-sm" />
+                        </div>
                         {item.feature}
                       </div>
                     </td>
@@ -160,13 +163,14 @@ const Comparison = () => {
           <motion.div
             {...animationConfig}
             whileHover={{ y: -10, scale: 1.02 }}
-            className="p-10 bg-white/60 backdrop-blur-sm rounded-[2.5rem] border border-white/60 shadow-xl hover:shadow-2xl transition-all duration-300 group"
+            className="p-10 bg-white rounded-[2.5rem] border border-primary-100 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)] transition-all duration-300 group"
           >
-            <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center shadow-lg mb-8 group-hover:rotate-6 transition-transform duration-300">
-              <Database className="w-8 h-8 text-white" />
+            <div className="w-20 h-20 bg-blue-50/80 rounded-[1.5rem] flex items-center justify-center shadow-sm border border-white/50 mb-8 group-hover:rotate-6 transition-transform duration-300 transform-gpu">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/3d-emojis/card_file_box_3d.png" alt="Más que un CRM" className="w-12 h-12 object-contain drop-shadow-md" />
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-text-primary">Más que un CRM</h3>
-            <p className="text-text-secondary leading-relaxed text-lg">
+            <h3 className="text-2xl font-bold mb-4 text-primary-600 leading-snug">Más que un CRM</h3>
+            <p className="text-gray-500 font-medium leading-relaxed text-lg">
               Mientras que un CRM tradicional solo almacena información, MediTeam <span className="text-primary-600 font-bold decoration-primary-200 underline decoration-4 underline-offset-4">ejecuta</span> tareas reales por ti.
             </p>
           </motion.div>
@@ -175,13 +179,14 @@ const Comparison = () => {
             {...animationConfig}
             transition={{ delay: 0.2 }}
             whileHover={{ y: -10, scale: 1.02 }}
-            className="p-10 bg-primary-500/5 backdrop-blur-sm rounded-[2.5rem] border border-primary-500/10 shadow-xl hover:shadow-2xl transition-all duration-300 group ring-4 ring-primary-500/5"
+            className="p-10 bg-white rounded-[2.5rem] border border-primary-100 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)] transition-all duration-300 group ring-4 ring-primary-50/50"
           >
-            <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center shadow-lg mb-8 group-hover:scale-110 transition-transform duration-300">
-              <Bot className="w-8 h-8 text-white" />
+            <div className="w-20 h-20 bg-indigo-50/80 rounded-[1.5rem] flex items-center justify-center shadow-sm border border-white/50 mb-8 group-hover:scale-110 transition-transform duration-300 transform-gpu">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/3d-emojis/robot_3d.png" alt="Equipo 24/7" className="w-12 h-12 object-contain drop-shadow-md" />
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-text-primary">Equipo 24/7</h3>
-            <p className="text-text-secondary leading-relaxed text-lg">
+            <h3 className="text-2xl font-bold mb-4 text-primary-600 leading-snug">Equipo 24/7</h3>
+            <p className="text-gray-500 font-medium leading-relaxed text-lg">
               Tus 4 agentes de IA trabajan sin descanso, respondiendo mensajes y agendando citas mientras duermes o consultas.
             </p>
           </motion.div>
@@ -190,14 +195,15 @@ const Comparison = () => {
             {...animationConfig}
             transition={{ delay: 0.4 }}
             whileHover={{ y: -10, scale: 1.02 }}
-            className="p-10 bg-white/60 backdrop-blur-sm rounded-[2.5rem] border border-white/60 shadow-xl hover:shadow-2xl transition-all duration-300 group"
+            className="p-10 bg-white rounded-[2.5rem] border border-primary-100 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)] transition-all duration-300 group"
           >
-            <div className="w-16 h-16 bg-success rounded-2xl flex items-center justify-center shadow-lg mb-8 group-hover:-rotate-6 transition-transform duration-300">
-              <Users className="w-8 h-8 text-white" />
+            <div className="w-20 h-20 bg-emerald-50/80 rounded-[1.5rem] flex items-center justify-center shadow-sm border border-white/50 mb-8 group-hover:-rotate-6 transition-transform duration-300 transform-gpu">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/3d-emojis/coin_3d.png" alt="Valor Económico" className="w-12 h-12 object-contain drop-shadow-md" />
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-text-primary">Valor Económico</h3>
-            <p className="text-text-secondary leading-relaxed text-lg">
-              Obtén el rendimiento de un equipo administrativo por una <span className="text-success-dark font-bold underline decoration-success-light decoration-4 underline-offset-4">fracción del costo</span> de una recepcionista humana.
+            <h3 className="text-2xl font-bold mb-4 text-primary-600 leading-snug">Valor Económico</h3>
+            <p className="text-gray-500 font-medium leading-relaxed text-lg">
+              Obtén el rendimiento de un equipo administrativo por una <span className="text-emerald-500 font-bold underline decoration-emerald-200 decoration-4 underline-offset-4">fracción del costo</span> de una recepcionista humana.
             </p>
           </motion.div>
         </div>

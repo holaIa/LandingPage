@@ -15,7 +15,7 @@ const HeroWithPlaceholder = () => {
   return (
     <section
       id="home"
-      className="hero-section bg-gradient-to-br from-blue-50 via-white to-purple-50"
+      className="hero-section bg-gradient-to-br from-primary-50 via-white to-purple-50"
     >
       {/* Background Elements */}
       <div className="background-blob"></div>
@@ -30,7 +30,7 @@ const HeroWithPlaceholder = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center px-6 py-3 rounded-full bg-blue-100 text-blue-800 text-base font-semibold mb-8 shadow-sm"
+              className="inline-flex items-center px-6 py-3 rounded-full bg-primary-100 text-primary-800 text-base font-semibold mb-8 shadow-sm"
             >
               <Zap className="w-5 h-5 mr-3" />
               Revoluciona tu práctica médica con IA
@@ -44,7 +44,7 @@ const HeroWithPlaceholder = () => {
               className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight"
             >
               CRM Médico Inteligente con
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8] block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-primary-700 block">
                 Agentes de IA
               </span>
             </motion.h1>
@@ -91,8 +91,8 @@ const HeroWithPlaceholder = () => {
               className="stats-grid"
             >
               <div className="text-center">
-                <div className="icon-container bg-blue-100 mx-auto">
-                  <MessageCircle className="w-8 h-8 text-blue-600" />
+                <div className="icon-container bg-primary-100 mx-auto">
+                  <MessageCircle className="w-8 h-8 text-primary-600" />
                 </div>
                 <h3 className="text-3xl font-bold text-gray-900 mb-3">90%</h3>
                 <p className="text-gray-600 text-lg">

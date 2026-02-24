@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   MessageCircle,
   Calendar,
@@ -54,7 +55,7 @@ const Agents = () => {
         "Reprogramación inteligente",
         "Gestión de horarios disponibles",
       ],
-      icon: Calendar,
+      iconUrl: "/images/3d-emojis/spiral_calendar_3d.png",
       color: "blue",
       rating: 4.9,
       conversations: "2,500+",
@@ -70,7 +71,7 @@ const Agents = () => {
         "Orientación médica básica",
         "Derivación a especialistas",
       ],
-      icon: MessageCircle,
+      iconUrl: "/images/3d-emojis/community_3d.png",
       color: "green",
       rating: 4.8,
       conversations: "3,200+",
@@ -86,7 +87,7 @@ const Agents = () => {
         "Encuestas de satisfacción",
         "Coordinación de seguimientos",
       ],
-      icon: UserCheck,
+      iconUrl: "/images/3d-emojis/handshake_3d.png",
       color: "purple",
       rating: 4.9,
       conversations: "1,800+",
@@ -102,19 +103,21 @@ const Agents = () => {
         "Resultados de laboratorio",
         "Documentación médica",
       ],
-      icon: FileText,
+      iconUrl: "/images/3d-emojis/file_folder_3d.png",
       color: "indigo",
       rating: 4.7,
       conversations: "950+",
     },
   ];
 
-  const getColorClasses = (color: string) => {
+  const get3DColorClasses = (color: string) => {
     const colors = {
-      blue: "bg-blue-100 text-blue-600",
-      green: "bg-green-100 text-green-600",
-      purple: "bg-purple-100 text-purple-600",
-      indigo: "bg-indigo-100 text-indigo-600",
+      blue: "bg-blue-50/80 border border-blue-100",
+      green: "bg-emerald-50/80 border border-emerald-100",
+      purple: "bg-purple-50/80 border border-purple-100",
+      indigo: "bg-indigo-50/80 border border-indigo-100",
+      red: "bg-rose-50/80 border border-rose-100",
+      orange: "bg-orange-50/80 border border-orange-100",
     };
     return colors[color as keyof typeof colors] || colors.blue;
   };
@@ -150,7 +153,7 @@ const Agents = () => {
                 "Info de horarios, ubicación y servicios",
                 "Funciona 24/7 sin descanso",
               ],
-              icon: MessageCircle,
+              iconUrl: "/images/3d-emojis/community_3d.png",
               color: "blue",
             },
             {
@@ -164,7 +167,7 @@ const Agents = () => {
                 "Coordina tu disponibilidad",
                 "Automatiza recordatorios",
               ],
-              icon: Calendar,
+              iconUrl: "/images/3d-emojis/spiral_calendar_3d.png",
               color: "green",
             },
             {
@@ -178,7 +181,7 @@ const Agents = () => {
                 "Apoyo en notas post-consulta",
                 "Centraliza la información médica",
               ],
-              icon: FileText,
+              iconUrl: "/images/3d-emojis/file_folder_3d.png",
               color: "indigo",
             },
             {
@@ -192,7 +195,7 @@ const Agents = () => {
                 "Mantiene el contacto constante",
                 "Mejora adherencia y recurrencia",
               ],
-              icon: UserCheck,
+              iconUrl: "/images/3d-emojis/handshake_3d.png",
               color: "purple",
             },
           ].map((agent, index) => (
@@ -206,30 +209,29 @@ const Agents = () => {
                 delay: isMobile ? 0 : index * 0.1,
               }}
               viewport={{ once: true }}
-              className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 mobile-stable group"
+              className="bg-white rounded-[2.5rem] p-8 border border-primary-100 shadow-[0_4px_20px_rgba(59,130,246,0.08)] hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)] transition-all duration-300 flex flex-col group font-sans"
             >
               {/* Agent Header */}
               <div className="flex items-start justify-between mb-6 sm:mb-8">
-                <div className="flex items-center space-x-3 sm:space-x-4">
+                <div className="flex flex-col space-y-4">
                   <motion.div
                     variants={{
                       hover: { 
-                        scale: 1.1, 
-                        rotate: [0, -10, 10, 0],
+                        scale: 1.05, 
+                        rotate: [0, -5, 5, 0],
                         transition: { duration: 0.5 }
                       }
                     }}
-                    className={`icon-container large ${getColorClasses(
-                      agent.color
-                    )} transition-colors duration-300 group-hover:bg-white group-hover:shadow-md`}
+                    className={`w-20 h-20 rounded-[1.5rem] flex items-center justify-center transition-all duration-300 transform-gpu ${get3DColorClasses(agent.color)} shadow-sm border border-white/50`}
                   >
-                    <agent.icon className="w-6 h-6 sm:w-8 sm:h-8" />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={agent.iconUrl} alt={agent.name} className="w-12 h-12 object-contain drop-shadow-md" />
                   </motion.div>
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-primary-600 mb-1 leading-snug">
                       {agent.name}
                     </h3>
-                    <p className="text-gray-600 text-base sm:text-lg">
+                    <p className="text-gray-500 text-lg font-medium">
                       {agent.role}
                     </p>
                   </div>
@@ -286,14 +288,14 @@ const Agents = () => {
         {/* Integration Section */}
         <motion.div
           {...animationConfig}
-          className="bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8] rounded-3xl p-6 sm:p-8 lg:p-12 text-white mt-12 sm:mt-16 mobile-stable"
+          className="bg-gradient-to-r from-primary-500 to-primary-700 rounded-3xl p-6 sm:p-8 lg:p-12 text-white mt-12 sm:mt-16 mobile-stable"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8">
                 Integración Perfecta con WhatsApp Business
               </h3>
-              <p className="text-blue-100 text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
+              <p className="text-primary-100 text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
                 Nuestros agentes de IA se integran nativamente con WhatsApp
                 Business, proporcionando una experiencia fluida y profesional
                 para tus pacientes.
@@ -336,7 +338,7 @@ const Agents = () => {
                     <h4 className="font-semibold text-white text-base sm:text-lg">
                       Dr. Asistente IA
                     </h4>
-                    <p className="text-blue-100 text-sm">
+                    <p className="text-primary-100 text-sm">
                       En línea • Respondiendo
                     </p>
                   </div>
@@ -374,7 +376,7 @@ const Agents = () => {
                     <div className="space-y-3 sm:space-y-4">
                       {/* User Message */}
                       <div className="flex items-start space-x-2 sm:space-x-3">
-                        <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 bg-primary-500 rounded-full flex items-center justify-center flex-shrink-0">
                           <span className="text-white text-xs font-bold">
                             U
                           </span>
@@ -419,7 +421,7 @@ const Agents = () => {
 
                       {/* User Response */}
                       <div className="flex items-start space-x-2 sm:space-x-3">
-                        <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 bg-primary-500 rounded-full flex items-center justify-center flex-shrink-0">
                           <span className="text-white text-xs font-bold">
                             U
                           </span>
@@ -436,11 +438,13 @@ const Agents = () => {
 
                     {/* Doctor Image in Corner - Optimizado para móvil */}
                     <div className="absolute top-2 sm:top-4 right-2 sm:right-4">
-                      <img
+                      <Image
                         src="/doctora_mobile.jpeg"
-                        alt="Doctora revisando su teléfono"
+                        alt="Doctora revisando su teléfono con la app de MediTeam"
                         className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-full object-cover border-2 sm:border-4 border-white shadow-lg mobile-stable"
-                        loading="lazy"
+                        width={80}
+                        height={80}
+                        sizes="80px"
                       />
                     </div>
                   </div>

@@ -16,14 +16,14 @@ const ChatPreview = () => {
         {/* Screen */}
         <div className="w-full h-full bg-white rounded-2xl overflow-hidden relative">
           {/* Header */}
-          <div className="bg-blue-500 text-white p-4">
+          <div className="bg-primary-500 text-white p-4">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                 <MessageCircle className="w-5 h-5" />
               </div>
               <div>
                 <h3 className="font-semibold">Dr. Asistente IA</h3>
-                <p className="text-blue-100 text-sm">En línea • Respondiendo</p>
+                <p className="text-primary-100 text-sm">En línea • Respondiendo</p>
               </div>
             </div>
           </div>
@@ -32,11 +32,11 @@ const ChatPreview = () => {
           <div className="p-4 space-y-4 bg-gray-50 h-64 overflow-y-auto">
             {/* User Message */}
             <div className="flex justify-end">
-              <div className="bg-blue-500 text-white rounded-2xl px-4 py-2 max-w-xs">
+              <div className="bg-primary-500 text-white rounded-2xl px-4 py-2 max-w-xs">
                 <p className="text-sm">
                   Ayudame a prepararme para la proxima visita de Juan
                 </p>
-                <p className="text-xs text-blue-100 mt-1">5:25 PM</p>
+                <p className="text-xs text-primary-100 mt-1">5:25 PM</p>
               </div>
             </div>
 
@@ -89,7 +89,7 @@ const ChatPreview = () => {
               <div className="flex-1 bg-gray-100 rounded-full px-4 py-2">
                 <p className="text-sm text-gray-500">Escribe un mensaje...</p>
               </div>
-              <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center">
                 <CheckCircle className="w-4 h-4 text-white" />
               </div>
             </div>

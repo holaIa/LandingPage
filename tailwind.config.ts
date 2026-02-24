@@ -10,16 +10,16 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          50: "#EFF6FF",
-          100: "#DBEAFE",
-          200: "#BFDBFE",
-          300: "#93C5FD",
-          400: "#60A5FA",
-          500: "#2563EB", // Main primary color from app
-          600: "#1D4ED8",
-          700: "#1E40AF",
-          800: "#1E3A8A",
-          900: "#1E3A5F",
+          50: "#f0f9ff",
+          100: "#e0f2fe",
+          200: "#bae6fd",
+          300: "#7dd3fc",
+          400: "#38bdf8",
+          500: "#0ea5e9", // Target MediTeam primary color
+          600: "#0284c7",
+          700: "#0369a1",
+          800: "#075985",
+          900: "#0c4a6e",
         },
         background: {
           DEFAULT: "#F7FAFC", // Main background from app
@@ -52,7 +52,7 @@ const config: Config = {
           dark: "#EDF2F7",
           text: "#718096",
           muted: "#A0AEC0",
-          active: "#2563EB",
+          active: "#0EA5E9",
           hover: "#F7FAFC",
         },
       },

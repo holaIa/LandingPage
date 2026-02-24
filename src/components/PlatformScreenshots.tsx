@@ -60,13 +60,13 @@ const PlatformScreenshots = () => {
   ];
 
   const renderSidebar = (activeTab: string) => (
-    <div className="w-64 bg-blue-50 h-full p-4 flex flex-col">
+    <div className="w-64 bg-primary-50 h-full p-4 flex flex-col">
       {/* Logo */}
       <div className="flex items-center gap-2 mb-8">
-        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+        <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
           <MessageCircle className="w-5 h-5 text-white" />
         </div>
-        <span className="font-bold text-blue-900">MediTeam</span>
+        <span className="font-bold text-primary-900">MediTeam</span>
       </div>
 
       {/* Navigation */}
@@ -87,8 +87,8 @@ const PlatformScreenshots = () => {
             key={item.name}
             className={`flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer transition-colors ${
               item.active
-                ? "bg-blue-600 text-white"
-                : "text-blue-900 hover:bg-blue-100"
+                ? "bg-primary-600 text-white"
+                : "text-primary-900 hover:bg-primary-100"
             }`}
           >
             <item.icon className="w-5 h-5" />
@@ -98,7 +98,7 @@ const PlatformScreenshots = () => {
       </nav>
 
       {/* Logout */}
-      <div className="flex items-center gap-3 px-3 py-2 text-blue-900 hover:bg-blue-100 rounded-lg cursor-pointer">
+      <div className="flex items-center gap-3 px-3 py-2 text-primary-900 hover:bg-primary-100 rounded-lg cursor-pointer">
         <LogOut className="w-5 h-5" />
         <span className="font-medium">Cerrar sesión</span>
       </div>
@@ -108,16 +108,16 @@ const PlatformScreenshots = () => {
   const renderPatientsDashboard = () => (
     <div className="flex-1 bg-gray-50 p-6">
       {/* Header */}
-      <div className="bg-blue-600 text-white rounded-xl p-6 mb-6">
+      <div className="bg-primary-600 text-white rounded-xl p-6 mb-6">
         <h1 className="text-2xl font-bold mb-2">
           Historial Clínico de Pacientes
         </h1>
-        <p className="text-blue-100 mb-4">
+        <p className="text-primary-100 mb-4">
           Gestiona y consulta el historial médico completo de tus pacientes
         </p>
         <div className="text-right">
           <div className="text-3xl font-bold">8</div>
-          <div className="text-blue-100">Pacientes registrados</div>
+          <div className="text-primary-100">Pacientes registrados</div>
         </div>
       </div>
 
@@ -128,13 +128,13 @@ const PlatformScreenshots = () => {
           <input
             type="text"
             placeholder="Buscar por nombre, email o teléfono..."
-            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           />
         </div>
-        <select className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+        <select className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500">
           <option>Todos los pacientes</option>
         </select>
-        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2">
+        <button className="bg-primary-600 text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2">
           <Plus className="w-5 h-5" />
           Nuevo Paciente
         </button>
@@ -142,7 +142,7 @@ const PlatformScreenshots = () => {
 
       {/* Patients Table */}
       <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-        <div className="bg-blue-600 text-white p-4">
+        <div className="bg-primary-600 text-white p-4">
           <div className="grid grid-cols-7 gap-4 text-sm font-medium">
             <div>Paciente</div>
             <div>Contacto</div>
@@ -193,8 +193,8 @@ const PlatformScreenshots = () => {
             <div key={index} className="p-4 hover:bg-gray-50">
               <div className="grid grid-cols-7 gap-4 items-center text-sm">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                    <Users className="w-5 h-5 text-blue-600" />
+                  <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
+                    <Users className="w-5 h-5 text-primary-600" />
                   </div>
                   <div>
                     <div className="font-medium text-gray-900">
@@ -260,7 +260,7 @@ const PlatformScreenshots = () => {
               Gestiona y visualiza todas las citas médicas
             </p>
           </div>
-          <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2">
+          <button className="bg-primary-600 text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2">
             <Plus className="w-5 h-5" />
             Nueva Cita
           </button>
@@ -275,7 +275,7 @@ const PlatformScreenshots = () => {
             <button className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
               Semana
             </button>
-            <button className="px-4 py-2 text-blue-600 bg-blue-50 rounded-lg border-b-2 border-blue-600">
+            <button className="px-4 py-2 text-primary-600 bg-primary-50 rounded-lg border-b-2 border-primary-600">
               Mes
             </button>
           </div>
@@ -309,7 +309,7 @@ const PlatformScreenshots = () => {
             <div
               key={i + 1}
               className={`p-3 text-center text-sm border border-gray-200 min-h-[60px] flex items-center justify-center ${
-                i + 1 === 9 ? "bg-blue-50 border-blue-200" : ""
+                i + 1 === 9 ? "bg-primary-50 border-primary-200" : ""
               }`}
             >
               {i + 1}
@@ -365,7 +365,7 @@ const PlatformScreenshots = () => {
                 key={index}
                 className={`p-3 rounded-lg cursor-pointer transition-colors ${
                   index === 0
-                    ? "bg-blue-50 border border-blue-200"
+                    ? "bg-primary-50 border border-primary-200"
                     : "hover:bg-gray-50"
                 }`}
               >
@@ -416,11 +416,11 @@ const PlatformScreenshots = () => {
           {/* Messages */}
           <div className="flex-1 p-4 space-y-4 overflow-y-auto">
             <div className="flex justify-end">
-              <div className="bg-blue-600 text-white p-3 rounded-lg max-w-xs">
+              <div className="bg-primary-600 text-white p-3 rounded-lg max-w-xs">
                 <p className="text-sm">
                   Hola doctor, ¿cuáles son los horarios de atención?
                 </p>
-                <p className="text-xs text-blue-100 mt-1">07:23</p>
+                <p className="text-xs text-primary-100 mt-1">07:23</p>
               </div>
             </div>
 
@@ -435,11 +435,11 @@ const PlatformScreenshots = () => {
             </div>
 
             <div className="flex justify-end">
-              <div className="bg-blue-600 text-white p-3 rounded-lg max-w-xs">
+              <div className="bg-primary-600 text-white p-3 rounded-lg max-w-xs">
                 <p className="text-sm">
                   Sí, me gustaría agendar para mañana a las 10:00 AM
                 </p>
-                <p className="text-xs text-blue-100 mt-1">08:23</p>
+                <p className="text-xs text-primary-100 mt-1">08:23</p>
               </div>
             </div>
           </div>
@@ -450,9 +450,9 @@ const PlatformScreenshots = () => {
               <input
                 type="text"
                 placeholder="Escribe un mensaje..."
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               />
-              <button className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+              <button className="p-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700">
                 <MessageCircle className="w-5 h-5" />
               </button>
             </div>
@@ -517,7 +517,7 @@ const PlatformScreenshots = () => {
         >
           <h2 className="section-title">
             Interfaz
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-primary-700">
               {" "}
               Profesional y Moderna
             </span>
@@ -570,10 +570,10 @@ const PlatformScreenshots = () => {
               nuestra plataforma.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+              <button className="bg-primary-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors">
                 Solicitar Demo Gratuita
               </button>
-              <button className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors">
+              <button className="border border-primary-600 text-primary-600 px-8 py-3 rounded-lg font-medium hover:bg-primary-50 transition-colors">
                 Explorar Más Funciones
               </button>
             </div>

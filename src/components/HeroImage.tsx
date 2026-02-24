@@ -15,7 +15,7 @@ const HeroImage = () => {
       <div className="relative rounded-2xl overflow-hidden shadow-2xl">
         {/* Placeholder Image with CSS */}
         <div
-          className="w-full h-[500px] bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden"
+          className="w-full h-[500px] bg-gradient-to-br from-primary-50 via-white to-purple-50 relative overflow-hidden"
           style={{
             backgroundImage: `
               radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
@@ -27,17 +27,17 @@ const HeroImage = () => {
           {/* Doctor Silhouette */}
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-64 h-80">
             {/* Doctor's head */}
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-white rounded-full border-4 border-blue-200"></div>
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-white rounded-full border-4 border-primary-200"></div>
 
             {/* Doctor's body */}
-            <div className="absolute top-12 left-1/2 transform -translate-x-1/2 w-24 h-32 bg-white rounded-t-3xl border-4 border-blue-200"></div>
+            <div className="absolute top-12 left-1/2 transform -translate-x-1/2 w-24 h-32 bg-white rounded-t-3xl border-4 border-primary-200"></div>
 
             {/* Doctor's arms */}
-            <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-white rounded-full border-4 border-blue-200"></div>
+            <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-white rounded-full border-4 border-primary-200"></div>
 
             {/* Stethoscope */}
             <div className="absolute top-8 left-1/2 transform -translate-x-1/2">
-              <Stethoscope className="w-8 h-8 text-blue-600" />
+              <Stethoscope className="w-8 h-8 text-primary-600" />
             </div>
           </div>
 
@@ -63,7 +63,7 @@ const HeroImage = () => {
           {/* Medical chart */}
           <div className="absolute top-24 right-8">
             <div className="w-16 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center">
-              <div className="w-8 h-8 border-2 border-blue-300 rounded"></div>
+              <div className="w-8 h-8 border-2 border-primary-300 rounded"></div>
             </div>
           </div>
         </div>
@@ -75,8 +75,8 @@ const HeroImage = () => {
       {/* Floating Stats Card */}
       <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-lg">
         <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-            <Users className="w-6 h-6 text-blue-600" />
+          <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+            <Users className="w-6 h-6 text-primary-600" />
           </div>
           <div>
             <p className="text-sm text-gray-600">Pacientes atendidos</p>

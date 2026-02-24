@@ -72,7 +72,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
         >
           <h2 className="section-title">
             ¿Listo para Revolucionar tu
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-primary-700">
               {" "}
               Práctica Médica?
             </span>
@@ -110,7 +110,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg"
+                    className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-lg"
                     placeholder="Tu nombre"
                     required
                   />
@@ -128,7 +128,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg"
+                    className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-lg"
                     placeholder="Tu apellido"
                     required
                   />
@@ -148,7 +148,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg"
+                  className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-lg"
                   placeholder="tu@email.com"
                   required
                 />
@@ -167,7 +167,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg"
+                  className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-lg"
                   placeholder="+1 (555) 123-4567"
                   required
                 />
@@ -186,7 +186,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                   name="clinic"
                   value={formData.clinic}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg"
+                  className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-lg"
                   placeholder="Nombre de tu clínica"
                   required
                 />
@@ -204,7 +204,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                   name="patients"
                   value={formData.patients}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg"
+                  className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-lg"
                   required
                 >
                   <option value="">Selecciona una opción</option>
@@ -229,7 +229,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={4}
-                  className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg"
+                  className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-lg"
                   placeholder="Cuéntanos sobre tus necesidades específicas..."
                 ></textarea>
               </div>
@@ -259,8 +259,8 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
               </h3>
               <div className="space-y-8">
                 <div className="flex items-center space-x-6">
-                  <div className="icon-container bg-blue-100">
-                    <Mail className="w-6 h-6 text-blue-600" />
+                  <div className="w-14 h-14 bg-blue-50/80 rounded-2xl flex items-center justify-center shadow-sm border border-blue-100/50 flex-shrink-0">
+                    <img src="/images/3d-emojis/envelope_3d.png" alt="Email" className="w-8 h-8 object-contain drop-shadow-sm" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 text-lg">
@@ -270,8 +270,8 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                   </div>
                 </div>
                 <div className="flex items-center space-x-6">
-                  <div className="icon-container bg-green-100">
-                    <Phone className="w-6 h-6 text-green-600" />
+                  <div className="w-14 h-14 bg-emerald-50/80 rounded-2xl flex items-center justify-center shadow-sm border border-emerald-100/50 flex-shrink-0">
+                    <img src="/images/3d-emojis/telephone_receiver_3d.png" alt="WhatsApp" className="w-8 h-8 object-contain drop-shadow-sm" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 text-lg">
@@ -281,8 +281,8 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                   </div>
                 </div>
                 <div className="flex items-center space-x-6">
-                  <div className="icon-container bg-purple-100">
-                    <MapPin className="w-6 h-6 text-purple-600" />
+                  <div className="w-14 h-14 bg-purple-50/80 rounded-2xl flex items-center justify-center shadow-sm border border-purple-100/50 flex-shrink-0">
+                    <img src="/images/3d-emojis/round_pushpin_3d.png" alt="Oficina" className="w-8 h-8 object-contain drop-shadow-sm" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 text-lg">
@@ -294,8 +294,8 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                   </div>
                 </div>
                 <div className="flex items-center space-x-6">
-                  <div className="icon-container bg-orange-100">
-                    <Clock className="w-6 h-6 text-orange-600" />
+                  <div className="w-14 h-14 bg-orange-50/80 rounded-2xl flex items-center justify-center shadow-sm border border-orange-100/50 flex-shrink-0">
+                    <img src="/images/3d-emojis/alarm_clock_3d.png" alt="Horario" className="w-8 h-8 object-contain drop-shadow-sm" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 text-lg">
@@ -310,14 +310,14 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
             </div>
 
             {/* WhatsApp CTA */}
-            <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-3xl p-8 text-white">
+            <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-3xl p-8 text-white shadow-lg">
               <div className="flex items-center space-x-6 mb-6">
-                <div className="icon-container bg-white/20">
-                  <MessageCircle className="w-6 h-6 text-white" />
+                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/30 shadow-inner flex-shrink-0">
+                  <img src="/images/3d-emojis/community_3d.png" alt="Contacto" className="w-10 h-10 object-contain drop-shadow-md" />
                 </div>
                 <div>
                   <h4 className="text-2xl font-bold">¿Prefieres WhatsApp?</h4>
-                  <p className="text-green-100 text-lg">
+                  <p className="text-emerald-50 text-lg">
                     Chatea con nosotros directamente
                   </p>
                 </div>
