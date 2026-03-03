@@ -5,6 +5,7 @@ import Features from "@/components/Features";
 import ClinicalSummaryFeature from "@/components/ClinicalSummaryFeature";
 import Platform from "@/components/Platform";
 import PlatformShowcase from "@/components/PlatformShowcase";
+import MobileAppShowcase from "@/components/MobileAppShowcase";
 import PlatformScreenshots from "@/components/PlatformScreenshots";
 import Agents from "@/components/Agents";
 import Pricing from "@/components/Pricing";
@@ -22,6 +23,7 @@ export default function Home() {
       <Comparison />
       {/* <Platform /> */}
       <PlatformShowcase />
+      <MobileAppShowcase />
       {/* <PlatformScreenshots /> */}
       <Agents />
       <Pricing />

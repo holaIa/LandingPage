@@ -10,6 +10,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Antigravity } from "./animations/Antigravity";
 
 const Hero = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -78,13 +79,15 @@ const Hero = () => {
           {/* Left Column - Content */}
           <div className="text-left space-y-8">
             {/* Badge */}
-            <motion.div
-              {...animationConfig}
-              className="inline-flex items-center px-4 py-2 rounded-full bg-primary-50 text-primary-600 text-sm font-semibold border border-primary-100 shadow-sm"
-            >
-              <img src="/images/3d-emojis/community_3d.png" alt="AI Chat" className="w-5 h-5 mr-2 drop-shadow-sm" />
-              IA Médica de Nueva Generación
-            </motion.div>
+            <Antigravity delayIndex={5} parallaxSpeed={0.05} className="inline-block">
+              <motion.div
+                {...animationConfig}
+                className="inline-flex items-center px-4 py-2 rounded-full bg-primary-50 text-primary-600 text-sm font-semibold border border-primary-100 shadow-sm"
+              >
+                <img src="/images/3d-emojis/community_3d.png" alt="AI Chat" className="w-5 h-5 mr-2 drop-shadow-sm" />
+                IA Médica de Nueva Generación
+              </motion.div>
+            </Antigravity>
 
             {/* Main Heading - Nuevo posicionamiento */}
             <motion.h1
@@ -156,22 +159,24 @@ const Hero = () => {
             </div>
 
             {/* Floating Stats Card - más sutil */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-3xl p-5 shadow-[0_4px_20px_rgba(59,130,246,0.12)] border border-primary-100 mobile-stable hidden sm:block">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-blue-50/80 border border-blue-100 rounded-xl flex items-center justify-center shadow-sm">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/3d-emojis/paciente_3d.png" alt="Pacientes" className="w-8 h-8 object-contain drop-shadow-md scale-[1.7] transform" />
-                </div>
-                <div>
-                  <p className="text-xs text-text-muted font-medium uppercase tracking-wider">
-                    Pacientes atendidos
-                  </p>
-                  <p className="text-lg font-bold text-text-primary">
-                    10,000+
-                  </p>
+            <Antigravity delayIndex={6} parallaxSpeed={0.2} className="absolute -bottom-6 -left-6 z-20 hidden sm:block">
+              <div className="bg-white rounded-3xl p-5 shadow-[0_4px_20px_rgba(59,130,246,0.12)] border border-primary-100 mobile-stable">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-blue-50/80 border border-blue-100 rounded-xl flex items-center justify-center shadow-sm">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/images/3d-emojis/paciente_3d.png" alt="Pacientes" className="w-8 h-8 object-contain drop-shadow-md scale-[1.7] transform" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-text-muted font-medium uppercase tracking-wider">
+                      Pacientes atendidos
+                    </p>
+                    <p className="text-lg font-bold text-text-primary">
+                      10,000+
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Antigravity>
           </motion.div>
         </div>
 
