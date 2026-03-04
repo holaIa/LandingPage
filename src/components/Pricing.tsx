@@ -85,8 +85,13 @@ const Pricing = () => {
             Sin funciones bloqueadas. Sin contratos forzosos. Sin sorpresas.
             Tus 4 agentes de IA están listos para trabajar desde el primer día.
           </p>
-          <div className="mt-6 inline-flex items-center px-6 py-3 rounded-full bg-primary-50 text-primary-700 font-semibold border border-primary-100">
-            Costo de implementación único: $9,900 MXN
+          <div className="mt-6 flex flex-col items-center gap-2">
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-primary-50 text-primary-700 font-semibold border border-primary-100">
+              Costo de implementación único: $9,900 MXN
+            </div>
+            <p className="text-sm text-text-muted">
+              Incluye configuración, capacitación de tu equipo y puesta en marcha. No es recurrente.
+            </p>
           </div>
         </motion.div>
 
@@ -136,7 +141,7 @@ const Pricing = () => {
                   </span>
                 </div>
                 <p className="mt-4 text-text-secondary italic">
-                  Solo pagas por mensajes de WhatsApp y uso de IA
+                  Sin renta mensual fija. Solo pagas por mensajes de WhatsApp y uso de IA
                 </p>
               </div>
 
@@ -209,7 +214,7 @@ const Pricing = () => {
             </div>
             <div className="mt-12 pt-8 border-t border-primary-200">
               <p className="text-primary-800 font-bold text-lg">
-                "Con MediTeam, tu inversión siempre es proporcional al crecimiento de tu consultorio."
+                Con una sola cita extra al mes, MediTeam se paga solo.
               </p>
             </div>
           </div>

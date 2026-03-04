@@ -2,13 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import {
-  MessageCircle,
-  Calendar,
-  Users,
-  ArrowRight,
-  CheckCircle,
-} from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Antigravity } from "./animations/Antigravity";
 
@@ -97,12 +91,12 @@ const Hero = () => {
               4 agentes de <span className="text-primary-500">IA trabajando</span> para tu consultorio 24/7.
             </motion.h1>
 
-            {/* Subtitle - Enfocado en valor */}
+            {/* Subtitle - Enfocado en resultado */}
             <motion.p
               {...subtitleAnimation}
               className="text-lg sm:text-xl lg:text-2xl text-text-secondary max-w-2xl leading-relaxed"
             >
-              MediTeam te entrega un equipo digital completo que responde, agenda y organiza todo, para que tú solo te encargues de tus pacientes.
+              Recupera más de 10 horas a la semana. Tus agentes responden WhatsApp, agendan citas, dan seguimiento y organizan expedientes mientras tú te enfocas en tus pacientes.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -111,13 +105,19 @@ const Hero = () => {
               className="flex flex-col sm:flex-row gap-4 justify-start items-center"
             >
               <a
-                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20activar%20mis%204%20agentes%20de%20IA%20de%20MediTeam"
+                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratuita%20de%20MediTeam"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary text-base sm:text-lg px-8 py-4 w-full sm:w-auto text-center font-bold"
               >
-                <span>Activa tus 4 agentes de IA</span>
+                <span>Solicitar demo gratuita</span>
                 <ArrowRight className="w-5 h-5" />
+              </a>
+              <a
+                href="#pricing"
+                className="text-base sm:text-lg px-8 py-4 w-full sm:w-auto text-center font-bold text-primary-600 hover:text-primary-700 transition-colors"
+              >
+                Ver precios
               </a>
             </motion.div>
 
@@ -147,7 +147,7 @@ const Hero = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-xl">
               <Image
                 src="/medica_nene.jpeg"
-                alt="Doctora profesional examinando a un niño en una consulta médica"
+                alt="Doctora usando CRM médico MediTeam con IA en consultorio de Guadalajara, Jalisco"
                 className="w-full h-auto object-cover mobile-stable"
                 width={800}
                 height={600}
@@ -189,10 +189,10 @@ const Hero = () => {
         >
           <div className="text-center">
             <div className="text-4xl lg:text-5xl font-bold text-text-primary mb-2">
-              90%
+              10,000+
             </div>
             <p className="text-text-secondary text-lg">
-              Reducción en tiempo de gestión
+              Pacientes atendidos por IA
             </p>
           </div>
           <div className="text-center">
@@ -200,15 +200,15 @@ const Hero = () => {
               24/7
             </div>
             <p className="text-text-secondary text-lg">
-              Atención automática disponible
+              Respuesta automática en WhatsApp
             </p>
           </div>
           <div className="text-center">
             <div className="text-4xl lg:text-5xl font-bold text-text-primary mb-2">
-              500+
+              &lt;1 min
             </div>
             <p className="text-text-secondary text-lg">
-              Clínicas confían en nosotros
+              Tiempo de respuesta promedio
             </p>
           </div>
         </motion.div>

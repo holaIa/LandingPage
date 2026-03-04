@@ -38,6 +38,26 @@ const FAQ = () => {
       answer:
         "Sí, MediTeam se integra con la mayoría de sistemas médicos, laboratorios, farmacias y herramientas de gestión. Ofrecemos APIs personalizadas para integraciones específicas.",
     },
+    {
+      question: "¿Mis pacientes notarán que hablan con una IA?",
+      answer:
+        "Los agentes de MediTeam están diseñados para sentirse naturales y profesionales. Manejan el 80% de las interacciones comunes (agendar citas, resolver dudas, dar horarios). Cuando una consulta requiere atención personalizada, el agente escala automáticamente a ti o a tu equipo. Los pacientes valoran la respuesta inmediata 24/7.",
+    },
+    {
+      question: "¿Cómo se protegen los datos de mis pacientes?",
+      answer:
+        "La seguridad es nuestra prioridad. Toda la información está cifrada de extremo a extremo, cumplimos con regulaciones de protección de datos y nuestros servidores cuentan con los más altos estándares de seguridad. Solo tú y tu equipo autorizado tienen acceso a la información clínica.",
+    },
+    {
+      question: "¿MediTeam está disponible en Guadalajara y Zapopan?",
+      answer:
+        "Sí, MediTeam opera desde Zapopan, Jalisco y brinda servicio a toda la Zona Metropolitana de Guadalajara incluyendo Zapopan, Tlaquepaque, Tonalá y todo el estado de Jalisco. Nuestro equipo de soporte está disponible localmente para implementación y capacitación presencial.",
+    },
+    {
+      question: "¿Qué tipo de médicos y clínicas usan MediTeam en Jalisco?",
+      answer:
+        "MediTeam es utilizado por médicos generales, especialistas, dentistas, psicólogos y clínicas de múltiples especialidades en Guadalajara, Zapopan y toda la zona metropolitana. Se adapta a cualquier especialidad médica y tamaño de consultorio.",
+    },
   ];
 
   const toggleFAQ = (index: number) => {
@@ -45,7 +65,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="section-padding bg-gray-50">
+    <section id="faq" className="section-padding bg-gray-50">
       <div className="container-max">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-start">
           {/* Left Section - Content */}
@@ -78,12 +98,17 @@ const FAQ = () => {
 
             {/* CTA Button */}
             <div className="pt-4 lg:pt-8">
-              <button className="inline-flex items-center space-x-3 sm:space-x-4 px-6 sm:px-10 py-3 sm:py-5 bg-white border-2 border-primary-600 text-primary-600 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg hover:bg-primary-50 transition-colors duration-200 group w-full sm:w-auto justify-center">
-                <span>Prueba MediTeam Ahora</span>
+              <a
+                href="https://wa.me/523315128570?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20gratuita%20de%20MediTeam"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-3 sm:space-x-4 px-6 sm:px-10 py-3 sm:py-5 bg-white border-2 border-primary-600 text-primary-600 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg hover:bg-primary-50 transition-colors duration-200 group w-full sm:w-auto justify-center"
+              >
+                <span>Solicitar demo gratuita</span>
                 <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary-600 rounded-full flex items-center justify-center group-hover:bg-primary-700 transition-colors duration-200">
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
-              </button>
+              </a>
             </div>
           </motion.div>
 

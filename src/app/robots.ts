@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/"],
       },
     ],
-    sitemap: "https://mediteam.mx/sitemap.xml",
+    sitemap: "https://mediteam.app/sitemap.xml",
   };
 }

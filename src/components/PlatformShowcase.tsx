@@ -41,6 +41,7 @@ const PlatformShowcase = () => {
       iconUrl: "/images/3d-emojis/bar_chart_3d.png",
       color: "orange",
       image: "/images/plataforma/dashboard-1.png",
+      imageAlt: "Dashboard de métricas del CRM médico MediTeam para clínicas en Guadalajara y Jalisco",
       features: [
         "Métricas de pacientes activos",
         "Análisis de citas y ocupación",
@@ -55,6 +56,7 @@ const PlatformShowcase = () => {
       iconUrl: "/images/3d-emojis/robot_3d.png",
       color: "blue",
       image: "/images/plataforma/dashboard-4.png",
+      imageAlt: "Agentes de inteligencia artificial y automatización de workflows para consultorios médicos en Zapopan",
       features: [
         "Personalización de agentes",
         "Automatización de procesos",
@@ -68,6 +70,7 @@ const PlatformShowcase = () => {
       iconUrl: "/images/3d-emojis/paciente_3d.png",
       color: "purple",
       image: "/images/plataforma/dashboard-3.png",
+      imageAlt: "Gestión de expedientes médicos digitales para pacientes en Guadalajara, Zapopan y Jalisco",
       features: [
         "Historial clínico completo",
         "Información personal y de contacto",
@@ -146,7 +149,7 @@ const PlatformShowcase = () => {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={item.image}
-                    alt={item.title}
+                    alt={item.imageAlt}
                     className="w-full rounded-2xl shadow-sm object-cover border border-gray-200"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-2xl"></div>

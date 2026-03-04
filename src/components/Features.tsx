@@ -2,18 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import {
-  MessageCircle,
-  Calendar,
-  Users,
-  FileText,
-  Shield,
-  Zap,
-  Smartphone,
-  BarChart3,
-  Clock,
-  CheckCircle,
-} from "lucide-react";
+import { Calendar, Zap, Smartphone, Clock, CheckCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Features = () => {
@@ -35,20 +24,6 @@ const Features = () => {
     initial: isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 },
     whileInView: { opacity: 1, y: 0 },
     transition: { duration: isMobile ? 0 : 0.8 },
-    viewport: { once: true },
-  };
-
-  const featureAnimation = {
-    initial: isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    transition: { duration: isMobile ? 0 : 0.6 },
-    viewport: { once: true },
-  };
-
-  const benefitsAnimation = {
-    initial: isMobile ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 },
-    whileInView: { opacity: 1, x: 0 },
-    transition: { duration: isMobile ? 0 : 0.5 },
     viewport: { once: true },
   };
 
@@ -97,15 +72,6 @@ const Features = () => {
     },
   ];
 
-  const benefits = [
-    "Reducción del 90% en tiempo de gestión administrativa",
-    "Aumento del 40% en la satisfacción del paciente",
-    "Disponibilidad 24/7 para atención al paciente",
-    "Integración completa con sistemas existentes",
-    "Cumplimiento total con regulaciones médicas",
-    "Soporte técnico especializado en el sector salud",
-  ];
-
   const get3DColorClasses = (color: string) => {
     const colors = {
       blue: "bg-blue-50/80 border border-blue-100",
@@ -143,9 +109,9 @@ const Features = () => {
             viewport={{ once: true }}
             className="text-center"
           >
-            <div className="text-4xl font-bold text-text-primary mb-4">
+            <h3 className="text-4xl font-bold text-text-primary mb-4">
               Antes de la consulta
-            </div>
+            </h3>
             <p className="text-text-secondary text-lg mb-6">
               Revisa historial, notas y resultados en un solo lugar, sincroniza
               horarios y entra preparado con hallazgos clave.
@@ -173,9 +139,9 @@ const Features = () => {
             viewport={{ once: true }}
             className="text-center"
           >
-            <div className="text-4xl font-bold text-text-primary mb-4">
+            <h3 className="text-4xl font-bold text-text-primary mb-4">
               Durante la consulta
-            </div>
+            </h3>
             <p className="text-text-secondary text-lg mb-6">
               Transcribe visitas en múltiples idiomas, estructura notas a tu
               manera y genera referencias e información al instante.
@@ -203,9 +169,9 @@ const Features = () => {
             viewport={{ once: true }}
             className="text-center"
           >
-            <div className="text-4xl font-bold text-text-primary mb-4">
+            <h3 className="text-4xl font-bold text-text-primary mb-4">
               Después de la consulta
-            </div>
+            </h3>
             <p className="text-text-secondary text-lg mb-6">
               Envía todo a tu EHR con un clic, aplica códigos y tareas
               automáticamente, y termina tu día a tiempo sin acumulación.
@@ -276,12 +242,12 @@ const Features = () => {
                 Eficiencia que se paga sola
               </h3>
               <p className="text-lg text-primary-700 font-semibold mb-8 italic">
-                “Con una sola cita extra al mes, MediTeam se paga solo.”
+                Menos trabajo administrativo, más tiempo con tus pacientes.
               </p>
               <div className="space-y-6">
                 {[
                   "Ahorro de hasta $8,000 MXN vs personal humano",
-                  "Reducción del 90% en carga administrativa",
+                  "Menos carga administrativa para ti y tu equipo",
                   "Atención inmediata 24/7 sin errores",
                   "Generación constante de nuevas citas",
                   "Escalabilidad sin aumentar costos fijos",

@@ -7,7 +7,10 @@ interface AntigravityProps {
   children: ReactNode;
   parallaxSpeed?: number; // 0.1 to 0.3
   className?: string;
-  delayIndex?: number; 
+  delayIndex?: number;
+  hoverScale?: number;
+  hoverRotate?: number;
+  disableHover?: boolean;
 }
 
 export const Antigravity = ({
@@ -15,6 +18,9 @@ export const Antigravity = ({
   parallaxSpeed = 0.2, 
   className = "",
   delayIndex = 0,
+  hoverScale = 1.05,
+  hoverRotate = 2,
+  disableHover = false,
 }: AntigravityProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -35,7 +41,7 @@ export const Antigravity = ({
   const yRange = pseudoRandom(delayIndex * 1.1 + 1) * 10 + 15; // 15 to 25px
   const duration = pseudoRandom(delayIndex * 1.2 + 2) * 2 + 3; // 3 to 5s
   const delay = -pseudoRandom(delayIndex * 1.3 + 3) * 5; // -0 to -5s
-  const rotateDeg = (pseudoRandom(delayIndex * 1.4 + 4) * 1 + 2) * (pseudoRandom(delayIndex * 1.5 + 5) > 0.5 ? 1 : -1); // +/- 2 to 3 deg
+  const rotateDeg = (pseudoRandom(delayIndex * 1.4 + 4) * hoverRotate) * (pseudoRandom(delayIndex * 1.5 + 5) > 0.5 ? 1 : -1);
 
   return (
     <motion.div
@@ -51,8 +57,8 @@ export const Antigravity = ({
           repeat: Infinity,
           delay: delay,
         }}
-        whileHover={{
-          scale: 1.05,
+        whileHover={disableHover ? undefined : {
+          scale: hoverScale,
           rotate: rotateDeg,
         }}
         style={{ willChange: "transform" }}

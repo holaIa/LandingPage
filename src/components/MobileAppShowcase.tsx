@@ -86,14 +86,21 @@ const MobileAppShowcase = () => {
               viewport={{ once: true }}
               className="flex flex-col items-center text-center space-y-6"
             >
-              <Antigravity delayIndex={index} parallaxSpeed={0.15}>
-                <div className="relative w-full max-w-[280px] mx-auto aspect-[1/2.16] rounded-[3rem] p-3 shadow-2xl bg-white border-4 border-gray-100 flex items-center justify-center">
-                  <div className="absolute top-0 w-32 h-6 bg-white rounded-b-3xl z-10 hidden sm:block"></div>
+              <Antigravity 
+                delayIndex={index} 
+                parallaxSpeed={isMobile ? 0 : 0.05} 
+                hoverScale={1.02} 
+                hoverRotate={0.5} 
+                disableHover={isMobile}
+                className="w-full max-w-[280px] mx-auto"
+              >
+                <div className="relative w-full aspect-[1/2.16] rounded-[3rem] p-2 sm:p-3 shadow-2xl bg-white border-4 border-gray-100 flex items-center justify-center overflow-hidden">
+                  <div className="absolute top-0 w-24 sm:w-32 h-5 sm:h-6 bg-white rounded-b-2xl sm:rounded-b-3xl z-10 hidden sm:block"></div>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
                     src={feature.image} 
                     alt={feature.title} 
-                    className="w-full h-full object-cover rounded-[2.25rem] relative z-0 border border-gray-100" 
+                    className="w-full h-full object-cover rounded-[2rem] sm:rounded-[2.25rem] relative z-0 border border-gray-100" 
                   />
                 </div>
               </Antigravity>

@@ -2,16 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import {
-  MessageCircle,
-  Calendar,
-  UserCheck,
-  FileText,
-  Phone,
-  Clock,
-  CheckCircle,
-  Star,
-} from "lucide-react";
+import { Phone, Clock, CheckCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Agents = () => {
@@ -35,80 +26,6 @@ const Agents = () => {
     transition: { duration: isMobile ? 0 : 0.8 },
     viewport: { once: true },
   };
-
-  const agentAnimation = {
-    initial: isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    transition: { duration: isMobile ? 0 : 0.6 },
-    viewport: { once: true },
-  };
-
-  const agents = [
-    {
-      name: "Dr. Asistente",
-      role: "Asistente de Citas",
-      description:
-        "Maneja la programación y reprogramación de citas médicas de forma inteligente.",
-      features: [
-        "Programación automática de citas",
-        "Confirmación y recordatorios",
-        "Reprogramación inteligente",
-        "Gestión de horarios disponibles",
-      ],
-      iconUrl: "/images/3d-emojis/spiral_calendar_3d.png",
-      color: "blue",
-      rating: 4.9,
-      conversations: "2,500+",
-    },
-    {
-      name: "Dr. Recepcionista",
-      role: "Atención al Paciente",
-      description:
-        "Responde consultas básicas y orienta a los pacientes sobre servicios médicos.",
-      features: [
-        "Respuestas a consultas frecuentes",
-        "Información sobre servicios",
-        "Orientación médica básica",
-        "Derivación a especialistas",
-      ],
-      iconUrl: "/images/3d-emojis/community_3d.png",
-      color: "green",
-      rating: 4.8,
-      conversations: "3,200+",
-    },
-    {
-      name: "Dr. Seguimiento",
-      role: "Seguimiento Post-Consulta",
-      description:
-        "Realiza seguimiento de tratamientos y recordatorios de medicamentos.",
-      features: [
-        "Recordatorios de medicamentos",
-        "Seguimiento de tratamientos",
-        "Encuestas de satisfacción",
-        "Coordinación de seguimientos",
-      ],
-      iconUrl: "/images/3d-emojis/handshake_3d.png",
-      color: "purple",
-      rating: 4.9,
-      conversations: "1,800+",
-    },
-    {
-      name: "Dr. Expediente",
-      role: "Gestión de Expedientes",
-      description:
-        "Organiza y mantiene actualizados los expedientes médicos digitales.",
-      features: [
-        "Actualización de historiales",
-        "Gestión de recetas",
-        "Resultados de laboratorio",
-        "Documentación médica",
-      ],
-      iconUrl: "/images/3d-emojis/file_folder_3d.png",
-      color: "indigo",
-      rating: 4.7,
-      conversations: "950+",
-    },
-  ];
 
   const get3DColorClasses = (color: string) => {
     const colors = {

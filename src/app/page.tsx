@@ -19,13 +19,11 @@ export default function Home() {
       <Header />
       <Hero />
       <Features />
+      <Agents />
       <ClinicalSummaryFeature />
       <Comparison />
-      {/* <Platform /> */}
       <PlatformShowcase />
       <MobileAppShowcase />
-      {/* <PlatformScreenshots /> */}
-      <Agents />
       <Pricing />
       <FAQ />
       <Contact />

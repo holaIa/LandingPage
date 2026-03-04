@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, X, Users, Bot, Database, Sparkles } from "lucide-react";
+import { Check, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Comparison = () => {

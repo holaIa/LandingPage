@@ -1,32 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  MessageCircle,
-  Clock,
-  Send,
-  CheckCircle,
-} from "lucide-react";
+import { Send, CheckCircle } from "lucide-react";
 import { useState } from "react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
+    name: "",
     phone: "",
     clinic: "",
     patients: "",
-    message: "",
   });
 
   const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -42,12 +29,10 @@ const Contact = () => {
     const message = `Hola, me interesa solicitar una demo gratis de MediTeam
 
 *Información de contacto:*
-• Nombre: ${formData.firstName} ${formData.lastName}
-• Email: ${formData.email}
+• Nombre: ${formData.name}
 • Teléfono: ${formData.phone}
 • Clínica: ${formData.clinic}
 • Número de pacientes: ${formData.patients}
-${formData.message ? `• Mensaje: ${formData.message}` : ""}
 
 ¿Podrían contactarme para agendar una demo?`;
 
@@ -96,60 +81,21 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
               Solicita tu Demo Gratis
             </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="firstName"
-                    className="block text-sm font-medium text-gray-700 mb-3"
-                  >
-                    Nombre
-                  </label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-lg"
-                    placeholder="Tu nombre"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="lastName"
-                    className="block text-sm font-medium text-gray-700 mb-3"
-                  >
-                    Apellido
-                  </label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-lg"
-                    placeholder="Tu apellido"
-                    required
-                  />
-                </div>
-              </div>
-
               <div>
                 <label
-                  htmlFor="email"
+                  htmlFor="name"
                   className="block text-sm font-medium text-gray-700 mb-3"
                 >
-                  Email
+                  Nombre
                 </label>
                 <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
                   onChange={handleInputChange}
                   className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-lg"
-                  placeholder="tu@email.com"
+                  placeholder="Tu nombre completo"
                   required
                 />
               </div>
@@ -159,7 +105,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                   htmlFor="phone"
                   className="block text-sm font-medium text-gray-700 mb-3"
                 >
-                  Teléfono
+                  Teléfono / WhatsApp
                 </label>
                 <input
                   type="tel"
@@ -168,7 +114,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                   value={formData.phone}
                   onChange={handleInputChange}
                   className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-lg"
-                  placeholder="+1 (555) 123-4567"
+                  placeholder="+52 33 1234 5678"
                   required
                 />
               </div>
@@ -187,7 +133,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                   value={formData.clinic}
                   onChange={handleInputChange}
                   className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-lg"
-                  placeholder="Nombre de tu clínica"
+                  placeholder="Nombre de tu clínica o consultorio"
                   required
                 />
               </div>
@@ -197,7 +143,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                   htmlFor="patients"
                   className="block text-sm font-medium text-gray-700 mb-3"
                 >
-                  Número de Pacientes
+                  Pacientes al mes
                 </label>
                 <select
                   id="patients"
@@ -211,27 +157,8 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                   <option value="1-100">1 - 100 pacientes</option>
                   <option value="101-500">101 - 500 pacientes</option>
                   <option value="501-1000">501 - 1,000 pacientes</option>
-                  <option value="1001-5000">1,001 - 5,000 pacientes</option>
-                  <option value="5000+">Más de 5,000 pacientes</option>
+                  <option value="1000+">Más de 1,000 pacientes</option>
                 </select>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 mb-3"
-                >
-                  Mensaje (Opcional)
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={4}
-                  className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-lg"
-                  placeholder="Cuéntanos sobre tus necesidades específicas..."
-                ></textarea>
               </div>
 
               <button
@@ -239,7 +166,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}
                 className="w-full btn-primary text-lg py-4 flex items-center justify-center"
               >
                 <Send className="w-6 h-6" />
-                <span>Enviar por WhatsApp</span>
+                <span>Solicitar demo gratuita</span>
               </button>
             </form>
           </motion.div>
