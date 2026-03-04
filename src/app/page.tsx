@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Comparison from "@/components/Comparison";
 import Features from "@/components/Features";
 import ClinicalSummaryFeature from "@/components/ClinicalSummaryFeature";
+import ClinicalNotesFeature from "@/components/ClinicalNotesFeature";
 import Platform from "@/components/Platform";
 import PlatformShowcase from "@/components/PlatformShowcase";
 import MobileAppShowcase from "@/components/MobileAppShowcase";
@@ -21,6 +22,7 @@ export default function Home() {
       <Features />
       <Agents />
       <ClinicalSummaryFeature />
+      <ClinicalNotesFeature />
       <Comparison />
       <PlatformShowcase />
       <MobileAppShowcase />
